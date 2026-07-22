@@ -12,6 +12,7 @@ const serCurated = (p) => ({
   en: { title: p.titleEn, body: p.bodyEn },
   ar: { title: p.titleAr, body: p.bodyAr },
   fields: p.fields,
+  media: p.mediaUrl ? { url: p.mediaUrl, type: p.mediaType } : null,
   mine: false,
 });
 

@@ -1,7 +1,12 @@
 // ShotLab API client. Loaded before support.js so window.SL is ready when the
 // app boots. All calls use cookie sessions (credentials:'include').
 (function () {
-  const BASE = (window.SHOTLAB_API || 'http://localhost:4000').replace(/\/$/, '');
+  // Local dev runs the frontend (serve.mjs, :5173) and API (:4000) as two separate
+  // processes, so default to :4000 there. In production they're one merged Express
+  // service on a single origin, so same-origin is always correct there.
+  const isDevSplit =
+    (location.hostname === 'localhost' || location.hostname === '127.0.0.1') && location.port === '5173';
+  const BASE = (window.SHOTLAB_API || (isDevSplit ? 'http://localhost:4000' : location.origin)).replace(/\/$/, '');
 
   async function req(method, path, body, isForm) {
     const opts = { method, credentials: 'include', headers: {} };
@@ -50,12 +55,11 @@
     resetConfirm: (token, newPassword) => req('POST', '/auth/reset/confirm', { token, newPassword }),
     changePassword: (currentPassword, newPassword) => req('POST', '/auth/change-password', { currentPassword, newPassword }),
     updateProfile: (name) => req('PATCH', '/auth/profile', { name }),
-    googleConfig: () => req('GET', '/auth/google/config'),
-    google: (credential) => req('POST', '/auth/google', { credential }),
     // ---- ai ----
     generate: (payload) => req('POST', '/ai/generate', payload),
     score: (prompt, lang) => req('POST', '/ai/score', { prompt, lang }),
     improve: (prompt, lang) => req('POST', '/ai/improve', { prompt, lang }),
+    customize: (payload) => req('POST', '/ai/customize', payload),
     // ---- uploads ----
     upload: (file) => {
       const fd = new FormData();

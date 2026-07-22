@@ -130,3 +130,20 @@ export function heuristicImprove(prompt, lang = 'en') {
   const joiner = lang === 'ar' ? '\n\n— تحسينات — \n' : '\n\n— Enhancements —\n';
   return base + joiner + additions.map((s) => '• ' + s).join('\n');
 }
+
+// Deterministic fallback for /ai/customize when no model is available.
+export function heuristicCustomize({ prompt, instruction, platform, lang = 'en' }) {
+  let out = String(prompt || '').trim();
+  if (platform) {
+    const formatLineRe = /(Format:.*|التنسيق:.*)$/im;
+    if (formatLineRe.test(out)) {
+      out = out.replace(formatLineRe, (m) => `${m}, optimized for ${platform.name}`);
+    } else {
+      out += lang === 'ar' ? `\nمنصة الاستهداف: ${platform.name}` : `\nOptimized for: ${platform.name}`;
+    }
+  }
+  if (instruction) {
+    out += lang === 'ar' ? `\n\nتعديل مطلوب: ${instruction}` : `\n\nRequested change: ${instruction}`;
+  }
+  return out;
+}

@@ -140,14 +140,6 @@
         <div style="text-align:center;margin-top:20px;font-size:13px"><span onClick="{{ backToLogin }}" tabindex="0" style="color:var(--primary);font-weight:700;cursor:pointer">{{ backArrow }} {{ T.backToLogin }}</span></div>
         </sc-if>
         <sc-if value="{{ fmNormal }}" hint-placeholder-val="{{ true }}">
-        <div style="display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--faint);font-size:12px">
-          <span style="flex:1;height:1px;background:var(--border)"></span>{{ T.orContinue }}<span style="flex:1;height:1px;background:var(--border)"></span>
-        </div>
-        <button onClick="{{ socialSeam }}" disabled="{{ googleDisabled }}" aria-busy="{{ googleBusy }}" style="width:100%;height:46px;border-radius:12px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:700;font-size:13.5px;cursor:{{ googleCursor }};opacity:{{ googleOpacity }};display:flex;align-items:center;justify-content:center;gap:9px" style-hover="border-color:var(--primary)">
-          <sc-if value="{{ googleBusy }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="width:18px;height:18px;border-radius:50%;border:2px solid var(--border2);border-top-color:var(--primary);animation:slspin .75s linear infinite;flex:none"></span>{{ T.googleSigning }}</sc-if>
-          <sc-if value="{{ googleIdle }}" hint-placeholder-val="{{ true }}"><span style="width:18px;height:18px;border-radius:50%;background:conic-gradient(#ea4335 0 25%,#fbbc05 0 50%,#34a853 0 75%,#4285f4 0);flex:none"></span>{{ T.google }}</sc-if>
-        </button>
-        <sc-if value="{{ googleUnavailable }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px;color:var(--muted);margin-top:8px;text-align:center">{{ T.googleNotConfigured }}</div></sc-if>
         <div style="text-align:center;margin-top:20px;font-size:13px;color:var(--muted)">{{ authSwitchPrompt }} <span onClick="{{ toggleAuthView }}" tabindex="0" style="color:var(--primary);font-weight:700;cursor:pointer">{{ authSwitchLabel }}</span></div>
         <button onClick="{{ continueGuest }}" style="width:100%;margin-top:14px;height:44px;border-radius:12px;border:1px dashed var(--border2);background:transparent;color:var(--muted);font-family:inherit;font-weight:600;font-size:13.5px;cursor:pointer" style-hover="border-color:var(--primary);color:var(--primary)">{{ guestLabel }} {{ arrowInline }}</button>
         </sc-if>
@@ -161,7 +153,7 @@
   <sc-if value="{{ authed }}" hint-placeholder-val="{{ false }}">
   <header style="{{ headerStyle }}">
     <div style="max-width:1280px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:26px">
-      <div onClick="{{ goDash }}" tabindex="0" style="display:flex;align-items:center;gap:2px;cursor:pointer;flex:none">
+      <div onClick="{{ goDash }}" tabindex="0" style="display:flex;align-items:center;gap:2px;cursor:pointer;flex:none;direction:ltr">
         <div style="width:34px;height:34px;display:flex;align-items:center;justify-content:center">{{ icoLogoMark }}</div>
         <span style="font-weight:800;font-size:20px;letter-spacing:-.02em;color:var(--ink)">hotlab</span>
       </div>
@@ -273,7 +265,7 @@
                 <div style="display:flex;align-items:center;gap:11px;font-size:15px;color:var(--ink2)"><span style="width:24px;height:24px;border-radius:50%;background:rgba(96,31,255,.1);color:var(--primary);display:flex;align-items:center;justify-content:center;flex:none">{{ checkIco }}</span>{{ f }}</div>
               </sc-for>
             </div>
-            <button onClick="{{ goStudio }}" style="display:inline-flex;align-items:center;gap:9px;height:50px;padding:0 24px;border-radius:999px;background:var(--surface);border:1px solid var(--border2);color:var(--ink);font-family:inherit;font-weight:600;font-size:15px;cursor:pointer" style-hover="border-color:var(--primary);transform:translateY(-2px)">{{ s1Cta }} <span style="display:flex">{{ heroArrow }}</span></button>
+            <button onClick="{{ goStudio }}" style="display:inline-flex;align-items:center;gap:9px;height:50px;padding:0 24px;border-radius:999px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer;box-shadow:0 12px 30px rgba(96,31,255,.3)" style-hover="filter:brightness(1.07);transform:translateY(-2px)">{{ s1Cta }} <span style="display:flex">{{ heroArrow }}</span></button>
           </div>
           <div style="border-radius:22px;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-lg);padding:20px">
             <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px"><span style="width:28px;height:28px;border-radius:9px;background:rgba(96,31,255,.1);color:var(--primary);display:flex;align-items:center;justify-content:center">{{ heroWandSm }}</span><span style="font-weight:700;font-size:13.5px;color:var(--ink)">{{ mkStudioTitle }}</span><span class="mono" style="margin-{{ startSide }}:auto;font-size:11px;color:var(--faint)">{{ mkStudioTag }}</span></div>
@@ -307,7 +299,7 @@
                 <div style="display:flex;align-items:center;gap:11px;font-size:15px;color:var(--ink2)"><span style="width:24px;height:24px;border-radius:50%;background:rgba(22,179,127,.13);color:#16b37f;display:flex;align-items:center;justify-content:center;flex:none">{{ checkIco }}</span>{{ f }}</div>
               </sc-for>
             </div>
-            <button onClick="{{ goLab }}" style="display:inline-flex;align-items:center;gap:9px;height:50px;padding:0 24px;border-radius:999px;background:var(--surface);border:1px solid var(--border2);color:var(--ink);font-family:inherit;font-weight:600;font-size:15px;cursor:pointer" style-hover="border-color:#16b37f;transform:translateY(-2px)">{{ s2Cta }} <span style="display:flex">{{ heroArrow }}</span></button>
+            <button onClick="{{ goLab }}" style="display:inline-flex;align-items:center;gap:9px;height:50px;padding:0 24px;border-radius:999px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer;box-shadow:0 12px 30px rgba(96,31,255,.3)" style-hover="filter:brightness(1.07);transform:translateY(-2px)">{{ s2Cta }} <span style="display:flex">{{ heroArrow }}</span></button>
           </div>
         </div>
 
@@ -322,7 +314,7 @@
                 <div style="display:flex;align-items:center;gap:11px;font-size:15px;color:var(--ink2)"><span style="width:24px;height:24px;border-radius:50%;background:rgba(250,94,133,.12);color:#fa5e85;display:flex;align-items:center;justify-content:center;flex:none">{{ checkIco }}</span>{{ f }}</div>
               </sc-for>
             </div>
-            <button onClick="{{ goLibrary }}" style="display:inline-flex;align-items:center;gap:9px;height:50px;padding:0 24px;border-radius:999px;background:var(--surface);border:1px solid var(--border2);color:var(--ink);font-family:inherit;font-weight:600;font-size:15px;cursor:pointer" style-hover="border-color:#fa5e85;transform:translateY(-2px)">{{ s3Cta }} <span style="display:flex">{{ heroArrow }}</span></button>
+            <button onClick="{{ goLibrary }}" style="display:inline-flex;align-items:center;gap:9px;height:50px;padding:0 24px;border-radius:999px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer;box-shadow:0 12px 30px rgba(96,31,255,.3)" style-hover="filter:brightness(1.07);transform:translateY(-2px)">{{ s3Cta }} <span style="display:flex">{{ heroArrow }}</span></button>
           </div>
           <div style="border-radius:22px;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-lg);padding:20px">
             <div style="display:flex;align-items:center;gap:9px;border:1px solid var(--border2);border-radius:12px;padding:11px 14px;margin-bottom:14px;color:var(--faint)">{{ searchIcoLg }}<span style="font-size:13px">{{ s3Search }}</span></div>
@@ -365,8 +357,8 @@
         </div>
 
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:30px 0 8px;border-top:1px solid var(--border)">
-          <div style="display:flex;align-items:center;gap:2px"><div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center">{{ icoLogoMark }}</div><span style="font-weight:800;font-size:17px;color:var(--ink)">hotlab</span></div>
-          <div style="display:flex;gap:24px;font-size:13.5px;color:var(--muted)"><span style="cursor:pointer">{{ footPrivacy }}</span><span style="cursor:pointer">{{ footTerms }}</span><span style="cursor:pointer">{{ footContact }}</span></div>
+          <div style="display:flex;align-items:center;gap:2px;direction:ltr"><div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center">{{ icoLogoMark }}</div><span style="font-weight:800;font-size:17px;color:var(--ink)">hotlab</span></div>
+          <div style="display:flex;gap:24px;font-size:13.5px;color:var(--muted)"><span onClick="{{ openPrivacy }}" tabindex="0" style="cursor:pointer" style-hover="color:var(--primary)">{{ footPrivacy }}</span><span onClick="{{ openTerms }}" tabindex="0" style="cursor:pointer" style-hover="color:var(--primary)">{{ footTerms }}</span><span onClick="{{ openContact }}" tabindex="0" style="cursor:pointer" style-hover="color:var(--primary)">{{ footContact }}</span></div>
           <div style="font-size:12.5px;color:var(--faint)">{{ footCopy }}</div>
         </div>
       </div>
@@ -493,11 +485,11 @@
                 <div style="padding:14px 16px;border-top:1px solid var(--border);background:var(--surface2);display:flex;flex-direction:column;gap:10px">
                   <div style="display:flex;gap:8px">
                     <button onClick="{{ copyStudio }}" style="flex:1;height:42px;border-radius:11px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:600;box-shadow:0 6px 16px rgba(96,31,255,.26);font-size:13.5px;cursor:pointer" style-hover="filter:brightness(1.07);transform:translateY(-1px)">{{ copyStudioLabel }}</button>
-                    <button onClick="{{ openPlatformModal }}" style="flex:1;height:42px;border-radius:11px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer" style-hover="border-color:var(--primary);color:var(--primary)"><span style="display:flex;align-items:center">{{ icoRocketBtn }}</span>{{ T.choosePlatform }}</button>
+                    <button onClick="{{ openPlatformModal }}" style="flex:1;height:42px;border-radius:11px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px" style-hover="border-color:var(--primary);color:var(--primary)"><span style="display:flex;align-items:center">{{ icoRocketBtn }}</span>{{ T.choosePlatform }}</button>
                   </div>
                   <div style="display:flex;gap:8px">
-                    <button onClick="{{ studioToLab }}" style="flex:1;height:38px;border-radius:10px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:600;font-size:12.5px;cursor:pointer" style-hover="border-color:var(--primary);color:var(--primary)"><span style="display:flex;align-items:center">{{ icoFlaskBtn }}</span>{{ T.testInLab }}</button>
-                    <button onClick="{{ saveStudio }}" style="flex:1;height:38px;border-radius:10px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:600;font-size:12.5px;cursor:pointer" style-hover="border-color:var(--primary);color:var(--primary)"><span style="display:flex;align-items:center">{{ icoBookmarkBtn }}</span>{{ T.saveTemplate }}</button>
+                    <button onClick="{{ studioToLab }}" style="flex:1;height:38px;border-radius:10px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:600;font-size:12.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="border-color:var(--primary);color:var(--primary)"><span style="display:flex;align-items:center">{{ icoFlaskBtn }}</span>{{ T.testInLab }}</button>
+                    <button onClick="{{ saveStudio }}" style="flex:1;height:38px;border-radius:10px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:600;font-size:12.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="border-color:var(--primary);color:var(--primary)"><span style="display:flex;align-items:center">{{ icoBookmarkBtn }}</span>{{ T.saveTemplate }}</button>
                   </div>
                 </div>
               </div>
@@ -687,8 +679,48 @@
               <span style="font-size:12.5px;color:var(--muted)">{{ resultCountLabel }}</span>
             </div>
             <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
-            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
-              <sc-for list="{{ libResults }}" as="p" hint-placeholder-count="6">
+
+            <sc-if value="{{ hasShowcaseResults }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);margin-bottom:10px">{{ T.sectionShowcase }}</div>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:start;margin-bottom:26px">
+              <sc-for list="{{ showcaseResults }}" as="p" hint-placeholder-count="2">
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow);transition:box-shadow .18s" style-hover="box-shadow:var(--shadow-lg)">
+                  <div style="position:relative;width:100%;height:280px;border-radius:12px;overflow:hidden;background:#0b0b0f;margin:-4px -4px 0">
+                    <sc-if value="{{ p.isImage }}" hint-placeholder-val="{{ true }}">
+                    <img src="{{ p.mediaUrl }}" alt="" style="width:100%;height:100%;object-fit:contain;display:block"/>
+                    </sc-if>
+                    <sc-if value="{{ p.isVideo }}" hint-placeholder-val="{{ false }}">
+                    <video src="{{ p.mediaUrl }}" controls autoplay muted loop playsinline preload="auto" style="width:100%;height:100%;object-fit:contain;display:block;background:#0b0b0f"></video>
+                    <div style="position:absolute;top:10px;left:10px;display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:100px;background:rgba(0,0,0,.65);color:#fff;font-size:11px;font-weight:700;pointer-events:none">▶ Video</div>
+                    </sc-if>
+                  </div>
+                  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+                    <div style="display:flex;gap:5px;flex-wrap:wrap">
+                      <sc-for list="{{ p.tags }}" as="tg" hint-placeholder-count="2">
+                        <span style="display:inline-flex;align-items:center;padding:3px 9px;border-radius:100px;background:{{ tg.tint }};color:{{ tg.color }};font-size:10.5px;font-weight:700">{{ tg.label }}</span>
+                      </sc-for>
+                    </div>
+                    <button onClick="{{ p.toggleFav }}" aria-label="favorite" style="border:none;background:none;cursor:pointer;line-height:1;padding:2px;flex:none;color:#f59e0b;display:flex">{{ p.favIcon }}</button>
+                  </div>
+                  <div style="font-weight:700;font-size:15.5px;line-height:1.3;color:var(--ink)">{{ p.title }}</div>
+                  <div class="mono" style="font-size:11px;line-height:1.7;color:var(--muted);flex:1;min-height:78px;max-height:78px;overflow:hidden">{{ p.preview }}</div>
+                  <div style="display:flex;gap:6px;padding-top:12px;border-top:1px solid var(--border)">
+                    <button onClick="{{ p.openCustomizeMenu }}" style="flex:1;height:36px;border-radius:9px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:600;box-shadow:0 6px 16px rgba(96,31,255,.26);font-size:12.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="filter:brightness(1.07);transform:translateY(-1px)"><span style="display:flex;align-items:center">{{ icoSparkBtn }}</span>{{ T.edit }}</button>
+                    <button onClick="{{ p.choosePlatform }}" title="{{ T.choosePlatform }}" style="width:36px;height:36px;border-radius:9px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--primary);color:var(--primary)">{{ icoRocketBtn }}</button>
+                    <button onClick="{{ p.toLab }}" title="{{ T.testInLab }}" style="width:36px;height:36px;border-radius:9px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="border-color:#16a34a;color:#16a34a">{{ icoFlaskBtn }}</button>
+                    <button onClick="{{ p.copy }}" title="{{ T.copy }}" style="width:36px;height:36px;border-radius:9px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--primary);color:var(--primary)">{{ p.copyIcon }}</button>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+            </sc-if>
+
+            <sc-if value="{{ hasOtherResults }}" hint-placeholder-val="{{ true }}">
+            <sc-if value="{{ hasShowcaseResults }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);margin-bottom:10px">{{ T.sectionOther }}</div>
+            </sc-if>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:start">
+              <sc-for list="{{ otherResults }}" as="p" hint-placeholder-count="6">
                 <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow);transition:box-shadow .18s" style-hover="box-shadow:var(--shadow-lg)">
                   <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
                     <div style="display:flex;gap:5px;flex-wrap:wrap">
@@ -701,14 +733,15 @@
                   <div style="font-weight:700;font-size:15.5px;line-height:1.3;color:var(--ink)">{{ p.title }}</div>
                   <div class="mono" style="font-size:11px;line-height:1.7;color:var(--muted);flex:1;min-height:78px;max-height:78px;overflow:hidden">{{ p.preview }}</div>
                   <div style="display:flex;gap:6px;padding-top:12px;border-top:1px solid var(--border)">
-                    <button onClick="{{ p.edit }}" style="flex:1;height:36px;border-radius:9px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:600;box-shadow:0 6px 16px rgba(96,31,255,.26);font-size:12.5px;cursor:pointer" style-hover="filter:brightness(1.07);transform:translateY(-1px)">{{ T.edit }}</button>
-                    <button onClick="{{ p.toLab }}" title="{{ T.testInLab }}" style="height:36px;padding:0 12px;border-radius:9px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit;font-weight:600;font-size:12.5px" style-hover="border-color:#16a34a;color:#16a34a"><span style="display:flex">{{ icoFlaskBtn }}</span>{{ T.testInLab }}</button>
+                    <button onClick="{{ p.openCustomizeMenu }}" style="flex:1;height:36px;border-radius:9px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:600;box-shadow:0 6px 16px rgba(96,31,255,.26);font-size:12.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="filter:brightness(1.07);transform:translateY(-1px)"><span style="display:flex;align-items:center">{{ icoSparkBtn }}</span>{{ T.edit }}</button>
+                    <button onClick="{{ p.choosePlatform }}" title="{{ T.choosePlatform }}" style="width:36px;height:36px;border-radius:9px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--primary);color:var(--primary)">{{ icoRocketBtn }}</button>
+                    <button onClick="{{ p.toLab }}" title="{{ T.testInLab }}" style="width:36px;height:36px;border-radius:9px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="border-color:#16a34a;color:#16a34a">{{ icoFlaskBtn }}</button>
                     <button onClick="{{ p.copy }}" title="{{ T.copy }}" style="width:36px;height:36px;border-radius:9px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--primary);color:var(--primary)">{{ p.copyIcon }}</button>
-                    <button onClick="{{ p.duplicate }}" title="{{ T.duplicate }}" style="width:36px;height:36px;border-radius:9px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--primary);color:var(--primary)">{{ icoDup }}</button>
                   </div>
                 </div>
               </sc-for>
             </div>
+            </sc-if>
             </sc-if>
 
             <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
@@ -812,7 +845,7 @@
                     </div>
                     <div class="mono" style="font-size:11.5px;line-height:1.7;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:10px 12px;max-height:74px;overflow:hidden">{{ it.body }}</div>
                     <div style="display:flex;gap:8px;margin-top:11px">
-                      <button onClick="{{ it.toLab }}" style="height:32px;padding:0 13px;border-radius:8px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:600;box-shadow:0 6px 16px rgba(96,31,255,.26);font-size:12px;cursor:pointer" style-hover="filter:brightness(1.07);transform:translateY(-1px)"><span style="display:flex;align-items:center">{{ icoFlaskBtn }}</span>{{ T.open }}</button>
+                      <button onClick="{{ it.toLab }}" style="height:32px;padding:0 13px;border-radius:8px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:600;box-shadow:0 6px 16px rgba(96,31,255,.26);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="filter:brightness(1.07);transform:translateY(-1px)"><span style="display:flex;align-items:center">{{ icoFlaskBtn }}</span>{{ T.open }}</button>
                       <button onClick="{{ it.copyIt }}" style="height:32px;padding:0 13px;border-radius:8px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:600;font-size:12px;cursor:pointer" style-hover="border-color:var(--primary);color:var(--primary)"><span style="display:flex;align-items:center">{{ icoCopyBtn }}</span>{{ T.copy }}</button>
                       <button onClick="{{ it.del }}" style="height:32px;padding:0 13px;border-radius:8px;border:1px solid var(--border2);background:var(--surface);color:#dc2626;font-family:inherit;font-weight:600;font-size:12px;cursor:pointer;margin-{{ menuAlign }}:auto" style-hover="border-color:#dc2626"><span style="display:flex;align-items:center">{{ icoTrash }}</span>{{ T.delete }}</button>
                     </div>
@@ -842,7 +875,7 @@
                     <div class="mono" style="font-size:11px;line-height:1.65;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:10px;max-height:70px;overflow:hidden">{{ p.preview }}</div>
                     <div style="display:flex;gap:7px">
                       <button onClick="{{ p.copy }}" style="flex:1;height:32px;border-radius:8px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:600;font-size:12px;cursor:pointer" style-hover="border-color:var(--primary);color:var(--primary)"><span style="display:flex;align-items:center">{{ icoCopyBtn }}</span>{{ T.copy }}</button>
-                      <button onClick="{{ p.toLab }}" style="flex:1;height:32px;border-radius:8px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:600;box-shadow:0 6px 16px rgba(96,31,255,.26);font-size:12px;cursor:pointer" style-hover="filter:brightness(1.07);transform:translateY(-1px)"><span style="display:flex;align-items:center">{{ icoFlaskBtn }}</span>{{ T.open }}</button>
+                      <button onClick="{{ p.toLab }}" style="flex:1;height:32px;border-radius:8px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:600;box-shadow:0 6px 16px rgba(96,31,255,.26);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="filter:brightness(1.07);transform:translateY(-1px)"><span style="display:flex;align-items:center">{{ icoFlaskBtn }}</span>{{ T.open }}</button>
                     </div>
                   </div>
                 </sc-for>
@@ -961,6 +994,101 @@
   </div>
   </sc-if>
 
+  <!-- ============ CUSTOMIZE MENU (Library) ============ -->
+  <sc-if value="{{ customizeModal }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCustomizeMenu }}" style="position:fixed;inset:0;z-index:70;background:rgba(12,13,20,.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:24px;animation:slpop .2s ease both">
+    <div onClick="{{ stop }}" style="width:min(420px,94vw);background:var(--surface);border:1px solid var(--border2);border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden">
+      <div style="padding:20px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
+        <div>
+          <div style="font-weight:800;font-size:17px;color:var(--ink)">{{ T.customizeMenuTitle }}</div>
+          <div style="font-size:12.5px;color:var(--muted);margin-top:3px">{{ T.customizeMenuSub }}</div>
+        </div>
+        <button onClick="{{ closeCustomizeMenu }}" aria-label="close" style="width:30px;height:30px;border-radius:9px;border:1px solid var(--border2);background:var(--surface);color:var(--ink);cursor:pointer;font-size:14px;flex:none" style-hover="border-color:#dc2626;color:#dc2626">{{ icoClose }}</button>
+      </div>
+      <div style="padding:14px;display:flex;flex-direction:column;gap:8px">
+        <button onClick="{{ pickCustomizeWithMe }}" style="display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:13px;border:1px solid var(--border2);background:var(--surface);cursor:pointer;text-align:{{ startSide }}" style-hover="border-color:var(--primary)">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(96,31,255,.12);color:var(--primary);display:flex;align-items:center;justify-content:center;flex:none">{{ icoSlidersBtn }}</div>
+          <div><div style="font-weight:700;font-size:13.5px;color:var(--ink)">{{ T.customizeWithMe }}</div><div style="font-size:11.5px;color:var(--muted);margin-top:1px">{{ T.customizeWithMeSub }}</div></div>
+        </button>
+        <button onClick="{{ pickCustomizeWithAI }}" style="display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:13px;border:1px solid var(--border2);background:var(--surface);cursor:pointer;text-align:{{ startSide }}" style-hover="border-color:var(--primary)">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(250,94,133,.12);color:#fa5e85;display:flex;align-items:center;justify-content:center;flex:none">{{ icoSparkBtn }}</div>
+          <div><div style="font-weight:700;font-size:13.5px;color:var(--ink)">{{ T.customizeWithAI }}</div><div style="font-size:11.5px;color:var(--muted);margin-top:1px">{{ T.customizeWithAISub }}</div></div>
+        </button>
+        <button onClick="{{ pickCustomizeToAI }}" style="display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:13px;border:1px solid var(--border2);background:var(--surface);cursor:pointer;text-align:{{ startSide }}" style-hover="border-color:var(--primary)">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(34,197,94,.12);color:#16a34a;display:flex;align-items:center;justify-content:center;flex:none">{{ icoRocketBtn }}</div>
+          <div><div style="font-weight:700;font-size:13.5px;color:var(--ink)">{{ T.customizeToAI }}</div><div style="font-size:11.5px;color:var(--muted);margin-top:1px">{{ T.customizeToAISub }}</div></div>
+        </button>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ============ CUSTOMIZE WITH AI (Library) ============ -->
+  <sc-if value="{{ aiCustomizeModal }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeAiCustomize }}" style="position:fixed;inset:0;z-index:70;background:rgba(12,13,20,.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:24px;animation:slpop .2s ease both">
+    <div onClick="{{ stop }}" style="width:min(560px,94vw);max-height:88vh;background:var(--surface);border:1px solid var(--border2);border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden;display:flex;flex-direction:column">
+      <div style="padding:20px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex:none">
+        <div>
+          <div style="font-weight:800;font-size:17px;color:var(--ink)">{{ T.customizeWithAI }}</div>
+          <div style="font-size:12.5px;color:var(--muted);margin-top:3px">{{ aiCustomizeItemTitle }}</div>
+        </div>
+        <button onClick="{{ closeAiCustomize }}" aria-label="close" style="width:30px;height:30px;border-radius:9px;border:1px solid var(--border2);background:var(--surface);color:var(--ink);cursor:pointer;font-size:14px;flex:none" style-hover="border-color:#dc2626;color:#dc2626">{{ icoClose }}</button>
+      </div>
+      <div class="scrl" style="padding:20px 22px;overflow:auto;display:flex;flex-direction:column;gap:14px">
+        <div>
+          <label style="display:block;font-size:12.5px;font-weight:700;color:var(--ink2);margin-bottom:6px">{{ T.aiCustomizeLabel }}</label>
+          <textarea value="{{ aiCustomizeInstruction }}" onInput="{{ onAiCustomizeInstruction }}" placeholder="{{ T.aiCustomizePlaceholder }}" class="mono" style="width:100%;min-height:70px;resize:vertical;border-radius:11px;border:1px solid var(--border2);background:var(--surface2);padding:12px;font-size:12.5px;line-height:1.6;color:var(--ink)" style-focus="border-color:var(--primary)"></textarea>
+        </div>
+        <button onClick="{{ runAiCustomize }}" disabled="{{ aiCustomizeLoading }}" style="height:44px;border-radius:11px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer;box-shadow:0 6px 16px rgba(96,31,255,.26);display:flex;align-items:center;justify-content:center;gap:7px;opacity:{{ aiCustomizeBtnOpacity }};flex:none">
+          <span style="display:flex;align-items:center">{{ icoSparkBtn }}</span>{{ aiCustomizeBtnLabel }}
+        </button>
+        <sc-if value="{{ hasAiCustomizeResult }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <label style="display:block;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);margin-bottom:6px">{{ T.customizedResult }}</label>
+          <div class="mono" style="background:var(--surface2);border:1px solid var(--border);border-radius:11px;padding:13px;font-size:12px;line-height:1.75;color:var(--ink);white-space:pre-wrap;max-height:260px;overflow:auto">{{ aiCustomizeResult }}</div>
+        </div>
+        </sc-if>
+      </div>
+      <sc-if value="{{ hasAiCustomizeResult }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:16px 22px;border-top:1px solid var(--border);background:var(--surface);display:flex;gap:8px;flex:none;flex-wrap:wrap">
+        <button onClick="{{ copyAiCustomizeResult }}" style="flex:1;height:40px;min-width:100px;border-radius:10px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="border-color:var(--primary);color:var(--primary)"><span style="display:flex;align-items:center">{{ aiCustomizeCopyIcon }}</span>{{ T.copy }}</button>
+        <button onClick="{{ saveAiCustomizeResult }}" style="flex:1;height:40px;min-width:100px;border-radius:10px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="border-color:var(--primary);color:var(--primary)"><span style="display:flex;align-items:center">{{ icoBookmarkBtn }}</span>{{ T.saveTemplate }}</button>
+        <button onClick="{{ aiCustomizeToLab }}" style="flex:1;height:40px;min-width:100px;border-radius:10px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="border-color:#16a34a;color:#16a34a"><span style="display:flex;align-items:center">{{ icoFlaskBtn }}</span>{{ T.testInLab }}</button>
+        <button onClick="{{ aiCustomizeChoosePlatform }}" style="flex:1;height:40px;min-width:100px;border-radius:10px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;box-shadow:0 6px 16px rgba(96,31,255,.26);display:flex;align-items:center;justify-content:center;gap:6px" style-hover="filter:brightness(1.07)"><span style="display:flex;align-items:center">{{ icoRocketBtn }}</span>{{ T.choosePlatform }}</button>
+      </div>
+      </sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ============ LEGAL (Privacy / Terms / Contact) ============ -->
+  <sc-if value="{{ legalOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeLegal }}" style="position:fixed;inset:0;z-index:70;background:rgba(12,13,20,.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:24px;animation:slpop .2s ease both">
+    <div onClick="{{ stop }}" style="width:min(560px,94vw);max-height:82vh;background:var(--surface);border:1px solid var(--border2);border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden;display:flex;flex-direction:column">
+      <div style="padding:20px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex:none">
+        <div style="font-weight:800;font-size:17px;color:var(--ink)">{{ legalTitle }}</div>
+        <button onClick="{{ closeLegal }}" aria-label="close" style="width:30px;height:30px;border-radius:9px;border:1px solid var(--border2);background:var(--surface);color:var(--ink);cursor:pointer;font-size:14px;flex:none" style-hover="border-color:#dc2626;color:#dc2626">{{ icoClose }}</button>
+      </div>
+      <div class="scrl" style="padding:20px 22px;overflow:auto;display:flex;flex-direction:column;gap:12px">
+        <sc-if value="{{ isPrivacy }}" hint-placeholder-val="{{ false }}">
+          <sc-for list="{{ privacyParas }}" as="para" hint-placeholder-count="6">
+            <p style="font-size:13.5px;line-height:1.7;color:var(--ink2);margin:0">{{ para }}</p>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ isTerms }}" hint-placeholder-val="{{ false }}">
+          <sc-for list="{{ termsParas }}" as="para" hint-placeholder-count="7">
+            <p style="font-size:13.5px;line-height:1.7;color:var(--ink2);margin:0">{{ para }}</p>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+          <p style="font-size:13.5px;line-height:1.7;color:var(--ink2);margin:0">{{ T.contactBody }}</p>
+          <a href="{{ contactMailto }}" style="display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:11px;border:1px solid var(--border2);background:var(--surface2);color:var(--primary);font-weight:700;font-size:14px;text-decoration:none;width:fit-content"><span style="display:flex;align-items:center">{{ icoMailBtn }}</span>{{ contactEmail }}</a>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
   <!-- ================= EDIT DRAWER ================= -->
   <sc-if value="{{ editOpen }}" hint-placeholder-val="{{ false }}">
   <div onClick="{{ closeEdit }}" style="position:fixed;inset:0;z-index:65;background:rgba(12,13,20,.42);backdrop-filter:blur(3px);display:flex;justify-content:flex-end">
@@ -1005,7 +1133,7 @@
       <div style="padding:16px 22px;border-top:1px solid var(--border);background:var(--surface);display:flex;gap:10px">
         <button onClick="{{ saveEdit }}" style="flex:1;height:44px;border-radius:11px;border:none;background:var(--grad-diag);color:#fff;font-family:inherit;font-weight:600;box-shadow:0 6px 16px rgba(96,31,255,.26);font-size:14px;cursor:pointer" style-hover="filter:brightness(1.07);transform:translateY(-1px)">{{ T.saveToLibrary }}</button>
         <button onClick="{{ copyEdit }}" style="height:44px;padding:0 16px;border-radius:11px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:700;font-size:14px;cursor:pointer" style-hover="border-color:var(--primary);color:var(--primary)"><span style="display:flex;align-items:center">{{ icoCopyBtn }}</span>{{ copyEditLabel }}</button>
-        <button onClick="{{ editToLab }}" style="height:44px;padding:0 16px;border-radius:11px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:700;font-size:14px;cursor:pointer" style-hover="border-color:#16a34a;color:#16a34a"><span style="display:flex;align-items:center">{{ icoFlaskBtn }}</span>{{ T.testInLab }}</button>
+        <button onClick="{{ editToLab }}" style="height:44px;padding:0 16px;border-radius:11px;border:1px solid var(--border2);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px" style-hover="border-color:#16a34a;color:#16a34a"><span style="display:flex;align-items:center">{{ icoFlaskBtn }}</span>{{ T.testInLab }}</button>
       </div>
     </div>
   </div>
@@ -1023,17 +1151,18 @@ class Component extends DCLogic {
   state = {
     lang:'en', theme:'light', page:'dash',
     authed:false, guest:false, authView:'login', authName:'', authEmail:'', authPass:'', authAvatar:'', authErr:'', authBusy:false,
-    googleBusy:false, googleConfigured:null, googleReady:false, googleSdkError:false,
     resetSent:false, accountOpen:false, currentPass:'', newPass:'', authHasPassword:false,
     accountTab:'settings',
     studioInput:'text', studioIdea:'', studioFileName:'', studioFileURL:'', studioLoading:false, studioResult:'',
     attrs:{ style:'', shot:'', lighting:'', mood:'', color:'', camera:'', aspect:'' },
-    platformModal:false,
+    platformModal:false, platformModalPrompt:'', platformModalMode:'direct',
+    customizeModal:false, customizeModalItem:null,
+    aiCustomizeModal:false, aiCustomizeItem:null, aiCustomizeInstruction:'', aiCustomizeResult:'', aiCustomizeLoading:false,
     labText:'', labScored:false, showCompare:false, beforeText:'', afterText:'', scoreBefore:0, scoreAfter:0,
     libQuery:'', libCat:'all', favFilter:false, mineFilter:false, favs:[],
     saved:[], history:[], userTemplates:[],
     editOpen:false, editId:null, editTitle:'', editBody:'', editSourceUser:false, editFieldKeys:[], editFields:{},
-    attrsOpen:false, authGate:false, tutorial:false, tutorialStep:0,
+    attrsOpen:false, authGate:false, tutorial:false, tutorialStep:0, legalView:null,
     toast:'', copied:'',
   };
 
@@ -1090,11 +1219,10 @@ class Component extends DCLogic {
       SL.me().then(r=>{ if(r.user){ this._applyAuthed(r.user); } else if(r.guest){ this.setState({authed:true, guest:true}); } })
         .catch(()=>{ /* offline: stay on the auth screen */ });
     }catch(e){}
-    this._prepareGoogleSignIn();
     this._onMove=(e)=>{ document.querySelectorAll('[data-parallax]').forEach(el=>{ const r=el.getBoundingClientRect(); if(r.bottom<0||r.top>window.innerHeight) return; const px=Math.max(-.5,Math.min(.5,(e.clientX-r.left)/r.width-.5)); const py=Math.max(-.5,Math.min(.5,(e.clientY-r.top)/r.height-.5)); el.style.setProperty('--px',px.toFixed(3)); el.style.setProperty('--py',py.toFixed(3)); }); };
     window.addEventListener('mousemove',this._onMove,{passive:true});
   }
-  componentWillUnmount(){ if(this._onMove) window.removeEventListener('mousemove',this._onMove); clearTimeout(this._googleLoadTimer); }
+  componentWillUnmount(){ if(this._onMove) window.removeEventListener('mousemove',this._onMove); }
   // Data now lives server-side (see window.SL). Kept as a no-op so any stray
   // caller doesn't break; individual mutations persist via the API directly.
   persist(){}
@@ -1105,14 +1233,11 @@ class Component extends DCLogic {
       langSwitch:'العربية',
       authHero:'Turn any idea, image or video into a pro AI prompt',
       authFoot:'Smart prompt engineering for visual creators',
-      orContinue:'or continue with', google:'Continue with Google', googleSigning:'Signing in...',
-      googleNotConfigured:'Google Sign-In is not configured.', googleFailed:'Google Sign-In failed. Please try again.',
-      googleLinkFailed:'This Google account could not be linked safely.',
       login:'Log in', signup:'Sign up', logout:'Log out', signIn:'Sign in / Sign up',
       authWelcome:'Welcome back', authWelcomeSub:'Log in to your ShotLab workspace.',
       authCreate:'Create your account', authCreateSub:'Start building better prompts in minutes.',
       fName:'Full name', fEmail:'Email', fPass:'Password',
-      phName:'Jane Creator', phEmail:'you@studio.com', phPass:'At least 6 characters',
+      phName:'Majed Alsehli', phEmail:'you@studio.com', phPass:'At least 6 characters',
       noAccount:"Don't have an account?", haveAccount:'Already have an account?',
       forgot:'Forgot password?', resetSentTitle:'Check your inbox', resetSentSub:'If an account exists for that email, a reset link is on its way.',
       sendLink:'Send reset link', backToLogin:'Back to log in',
@@ -1130,6 +1255,14 @@ class Component extends DCLogic {
       remove:'Remove',
       choosePlatformTitle:'Choose an AI platform', choosePlatformSub:'We copy your prompt and open the platform in a new tab — paste and generate.',
       platformNote:'ShotLab engineers prompts; it does not generate images or video.', close:'Close',
+      customizeMenuTitle:'Customize this prompt', customizeMenuSub:'Pick how you want to adapt it.',
+      customizeWithMe:'Customize with me', customizeWithMeSub:'Edit the title, fields and text yourself.',
+      customizeWithAI:'Customize with AI', customizeWithAISub:'Describe a change and let AI rewrite the prompt.',
+      customizeToAI:'Customize to a specific AI', customizeToAISub:'Pick a platform and AI adapts the format for it.',
+      aiCustomizeLabel:'What should change?', aiCustomizePlaceholder:'e.g. make it about a luxury watch on marble, in a rainy city at night…',
+      customizedResult:'Customized prompt',
+      contactBody:'Questions, feedback, or a request about your data? Email us and we\'ll get back to you.',
+      sectionShowcase:'With visual examples', sectionOther:'Text prompts',
       labTitle:'Prompt Lab', labSub:'Score any prompt, learn what is missing, and improve it.',
       yourPrompt:'Your prompt', sample:'Sample', clear:'Clear',
       labPh:'Paste or write a prompt to evaluate…',
@@ -1140,7 +1273,7 @@ class Component extends DCLogic {
       saveGate:'Reach 22/25 to save as a reusable template.',
       libTitle:'Prompt Library', libSub:'Browse, favorite and reuse prompts — plus everything you save.',
       libSearch:'Search prompts…', myTemplates:'My templates', favorites:'Favorites',
-      edit:'Customize', copy:'Copy', copied:'Copied ✓', duplicate:'Duplicate',
+      edit:'Customize', copy:'Copy', copied:'Copied ✓',
       editTemplate:'Customize template', templateTitle:'Title', promptText:'Prompt', saveToLibrary:'Save to library',
       account:'Account', settings:'Settings', history:'History', tutorial:'Tutorial', back:'Back', outputSettings:'Output settings', finalPrompt:'Final prompt', dashStartHere:'Start here', dashSavedLabel:'Saved', dashFavLabel:'Favorites',
       profile:'Profile', saveChanges:'Save changes', appearance:'Appearance', prefLang:'Language', theme:'Theme', light:'Light', dark:'Dark',
@@ -1162,14 +1295,11 @@ class Component extends DCLogic {
       langSwitch:'English',
       authHero:'حوّل أي فكرة أو صورة أو فيديو إلى برومبت احترافي',
       authFoot:'هندسة برومبت ذكية لصنّاع المحتوى المرئي',
-      orContinue:'أو تابع عبر', google:'المتابعة عبر Google', googleSigning:'جار تسجيل الدخول...',
-      googleNotConfigured:'تسجيل الدخول باستخدام Google غير مهيأ.', googleFailed:'فشل تسجيل الدخول باستخدام Google. حاول مرة أخرى.',
-      googleLinkFailed:'تعذر ربط حساب Google بأمان.',
       login:'تسجيل الدخول', signup:'إنشاء حساب', logout:'تسجيل الخروج', signIn:'تسجيل الدخول / حساب جديد',
       authWelcome:'مرحباً بعودتك', authWelcomeSub:'سجّل الدخول إلى مساحة ShotLab.',
       authCreate:'أنشئ حسابك', authCreateSub:'ابدأ ببناء برومبتات أفضل خلال دقائق.',
       fName:'الاسم الكامل', fEmail:'البريد الإلكتروني', fPass:'كلمة المرور',
-      phName:'مبدع مرئي', phEmail:'you@studio.com', phPass:'6 أحرف على الأقل',
+      phName:'ماجد السهلي', phEmail:'you@studio.com', phPass:'6 أحرف على الأقل',
       noAccount:'ليس لديك حساب؟', haveAccount:'لديك حساب بالفعل؟',
       forgot:'نسيت كلمة المرور؟', resetSentTitle:'تحقّق من بريدك', resetSentSub:'إذا كان هناك حساب بهذا البريد، فرابط الإعادة في طريقه إليك.',
       sendLink:'أرسل رابط الإعادة', backToLogin:'العودة لتسجيل الدخول',
@@ -1187,6 +1317,14 @@ class Component extends DCLogic {
       remove:'إزالة',
       choosePlatformTitle:'اختر منصة ذكاء اصطناعي', choosePlatformSub:'ننسخ برومبتك ونفتح المنصة في تبويب جديد — الصق وابدأ التوليد.',
       platformNote:'ShotLab يهندس البرومبتات ولا يولّد الصور أو الفيديو.', close:'إغلاق',
+      customizeMenuTitle:'خصّص هذا البرومبت', customizeMenuSub:'اختر طريقة التخصيص.',
+      customizeWithMe:'خصّص بنفسك', customizeWithMeSub:'حرّر العنوان والحقول والنص يدوياً.',
+      customizeWithAI:'خصّص بالذكاء الاصطناعي', customizeWithAISub:'صف التغيير المطلوب ودع الذكاء يعيد صياغة البرومبت.',
+      customizeToAI:'خصّص لمنصة معينة', customizeToAISub:'اختر منصة ويكيّف الذكاء التنسيق لها.',
+      aiCustomizeLabel:'ما التغيير المطلوب؟', aiCustomizePlaceholder:'مثال: اجعله عن ساعة فاخرة على الرخام، في مدينة ليلية تحت المطر…',
+      customizedResult:'البرومبت المخصّص',
+      contactBody:'لديك سؤال أو ملاحظة أو طلب يخص بياناتك؟ راسلنا وسنعاود التواصل معك.',
+      sectionShowcase:'مع أمثلة مرئية', sectionOther:'برومبتات نصية',
       labTitle:'مختبر البرومبت', labSub:'قيّم أي برومبت، واعرف ما ينقصه، وحسّنه.',
       yourPrompt:'برومبتك', sample:'مثال', clear:'مسح',
       labPh:'الصق أو اكتب برومبت لتقييمه…',
@@ -1197,7 +1335,7 @@ class Component extends DCLogic {
       saveGate:'اصل إلى 22/25 لحفظه كقالب قابل لإعادة الاستخدام.',
       libTitle:'مكتبة البرومبتات', libSub:'تصفّح وفضّل وأعد استخدام البرومبتات — وكل ما تحفظه.',
       libSearch:'ابحث في البرومبتات…', myTemplates:'قوالبي', favorites:'المفضلة',
-      edit:'تخصيص', copy:'نسخ', copied:'تم النسخ ✓', duplicate:'نسخة',
+      edit:'تخصيص', copy:'نسخ', copied:'تم النسخ ✓',
       editTemplate:'تخصيص القالب', templateTitle:'العنوان', promptText:'البرومبت', saveToLibrary:'حفظ في المكتبة',
       account:'الحساب', settings:'الإعدادات', history:'السجل', tutorial:'الشرح التعليمي', back:'رجوع', outputSettings:'إعدادات المخرجات', finalPrompt:'البرومبت النهائي', dashStartHere:'ابدأ هنا', dashSavedLabel:'محفوظ', dashFavLabel:'المفضلة',
       profile:'الملف الشخصي', saveChanges:'حفظ التغييرات', appearance:'المظهر', prefLang:'اللغة', theme:'السمة', light:'فاتح', dark:'داكن',
@@ -1263,6 +1401,8 @@ class Component extends DCLogic {
   cameraDef = { key:'camera', en:{label:'Camera movement', opts:['Static','Slow pan','Dolly-in','Handheld','Crane','Tracking']}, ar:{label:'حركة الكاميرا', opts:['ثابتة','تحريك بطيء','دخول','محمولة','رافعة','تتبّع']} };
 
   platforms = [
+    { key:'chatgpt', name:'ChatGPT', type:'Image', url:'https://chatgpt.com', param:'q', badge:'GPT', color:'#10a37f', tint:'rgba(16,163,127,.12)' },
+    { key:'gemini', name:'Gemini', type:'Image', url:'https://gemini.google.com/app', param:'q', badge:'Ge', color:'#4285f4', tint:'rgba(66,133,244,.12)' },
     { key:'product-ads', name:'Midjourney', type:'Image', url:'https://www.midjourney.com/imagine', param:'prompt', badge:'MJ', color:'#601fff', tint:'rgba(96,31,255,.12)' },
     { key:'flux', name:'Flux', type:'Image', url:'https://replicate.com/black-forest-labs', badge:'FX', color:'#0ea5e9', tint:'rgba(14,165,233,.12)' },
     { key:'commercial-videos', name:'Veo', type:'Video', url:'https://labs.google/fx/tools/flow', badge:'Ve', color:'#22c55e', tint:'rgba(34,197,94,.12)' },
@@ -1272,6 +1412,9 @@ class Component extends DCLogic {
   ];
 
   catGroups = [
+    { key:'showcase', color:'#601fff', en:'Featured', ar:'مميّز', cats:[
+      { key:'showcase', en:'Showcase Examples', ar:'أمثلة مميزة' },
+    ]},
     { key:'brand-campaigns', color:'#22c55e', en:'Marketing & Advertising', ar:'التسويق والإعلان', cats:[
       { key:'product-ads', en:'Product Ads', ar:'إعلانات المنتجات' },
       { key:'brand-campaigns', en:'Brand Campaigns', ar:'حملات العلامة' },
@@ -1302,6 +1445,13 @@ class Component extends DCLogic {
   catLabel(k){ for(const g of this.catGroups){ const c=g.cats.find(x=>x.key===k); if(c) return this.state.lang==='en'?c.en:c.ar; } return k; }
 
   library = [
+    { id:'sc1', cats:['showcase','portraits','cinematic-scenes'], media:{url:'assets/library/lavender-field.jpg',type:'image'}, en:{title:'Lavender Field Portrait', body:'Transform this image into a cinematic portrait photograph.\n\nDress the subject in traditional Saudi attire: a black thobe, a matching head covering, and sunglasses. Preserve the authenticity of the clothing, including the fabric texture, folds, fit, and all accessory details, so the outfit feels realistic and true to life.\n\nPlace the subject lying naturally in a wide open field of purple flowers beneath a clear sky. The pose should feel relaxed, natural, and visually balanced, creating a calm and elegant outdoor portrait.\n\nUse a realistic photography style with natural daylight. The lighting should feel soft and believable, with gentle highlights and natural shadows that flatter the subject without looking artificial.\n\nKeep the depth of field shallow so the subject remains in sharp focus while the surrounding field and distant horizon blur softly into the background. The image should still preserve a sense of the wide landscape and open space.\n\nCamera settings: Aperture f/2.8 to f/4, ISO 100, Shutter speed 1/1000s.\n\nThe final result should feel serene, realistic, and cinematic — an elegant portrait that captures both the subject and the beauty of the expansive landscape.'}, ar:{title:'الخزامى'} },
+    { id:'sc2', cats:['showcase','portraits','dramatic-shots'], media:{url:'assets/library/moon-orb.jpg',type:'image'}, en:{title:'Moonlit Orb Portrait', body:'Transform this image into a dramatic low-light portrait with a mystical and cinematic mood.\n\nPosition the subject centered in the frame and facing straight toward the camera, holding a glowing orb that resembles the moon, serving as the only light source in the scene.\n\nThe glowing orb should cast a warm golden light onto the subject’s face and hands, creating soft illumination and a strong sense of intimacy. The background should fade completely into pure black.\n\nUse a tight portrait crop with the main focus on the subject’s face and the glowing orb. Keep the depth of field shallow.\n\nCamera settings: Aperture f/2.8, ISO 400–800, Shutter speed 1/60s.\n\nDeepen the blacks, enhance the warm golden glow, increase contrast for a chiaroscuro mood, and keep skin tones natural.\n\nThe final image should feel mystical, surreal, and intimate — a dreamlike cosmic portrait with cinematic contrast and quiet emotional intensity.'}, ar:{title:'صورة القمر'} },
+    { id:'sc3', cats:['showcase','commercial-videos','product-ads'], vid:true, media:{url:'assets/library/train-window.mp4',type:'video'}, en:{title:'Magical Train Window', body:'Create a premium 10-second cinematic product commercial inspired by a "Magical Train Window Moment." Use the attached product as the exact visual reference and seamlessly place it into a luxurious train environment.\n\nProduct accuracy is the highest priority: the attached product must remain completely identical to the reference image throughout — same packaging, shape, logo, label, colors, materials and reflections. No redesign or reinterpretation.\n\n0–2s: fade in, gentle push-in reveals the product beside the train window, warm cabin lighting, subtle train vibration.\n2–5s: smooth cinematic orbit around the product while an enchanted but believable landscape (misty mountains, glowing fields, golden sunset light) passes outside with realistic parallax.\n5–8s: elegant rack focus between the sharp product and the soft landscape, gentle window condensation and haze.\n8–10s: refined hero composition, camera nearly still, warm light wrapping around the product.\n\nStyle: luxury travel advertisement, emotional and poetic, analog 35mm film grain, natural reflections, sophisticated color grading. Format: 10s, cinematic, photorealistic, native 4K.'}, ar:{title:'نافذة القطار'} },
+    { id:'sc4', cats:['showcase','portraits','architecture'], media:{url:'assets/library/kingdom-tower.jpg',type:'image'}, en:{title:'Kingdom Tower Rooftop', body:'Transform the attached image into a cinematic nighttime rooftop portrait set against a modern Saudi Arabian cityscape, inspired by Riyadh or Jeddah.\n\nPreserve the subject’s identity, facial features, natural expression, and overall appearance exactly as shown in the reference image. Do not alter or beautify the face.\n\nPlace the subject confidently near the edge of a modern rooftop, looking out across the illuminated city. In the background, show a vibrant urban skyline with illuminated high-rise towers, glowing windows, and subtle neon tones.\n\nUse a shallow depth of field so the subject remains sharp while the skyline falls into a soft cinematic blur, with realistic bokeh and atmospheric haze.\n\nLighting: soft ambient nighttime illumination with rim lighting around the subject’s profile. Apply cinematic color grading with deep night blues, warm golden city lights, and restrained neon accents, plus subtle film grain.\n\nCamera settings: Aperture f/2.0, ISO 800, Shutter speed 1/125s, Focal length 50mm.\n\nThe final result should resemble a professionally photographed nighttime editorial portrait, with cinematic lighting and authentic urban atmosphere.'}, ar:{title:'برج المملكة'} },
+    { id:'sc5', cats:['showcase','storytelling'], media:{url:'assets/library/anime-sheet.jpg',type:'image'}, en:{title:'Anime Character Sheet', body:'Transform the attached image into a polished, expressive character reference sheet based closely on the subject’s appearance.\n\nPreserve the subject’s recognizable facial features, face shape, hairstyle, skin tone, and overall identity while adapting them into a clean anime-inspired illustration style: smooth refined linework, soft warm colors, subtle gradient shading, natural skin tones, simple clothing.\n\nArrange several portraits of the same character in a professional character-sheet layout with a variety of head angles (front-facing, three-quarter, profile) and multiple clearly distinct expressions (happiness, anger, shyness, confusion, surprise, sadness, calm).\n\nMaintain perfect character consistency across every variation — facial proportions, hairstyle, eye shape, and clothing must remain identical, with only expression and angle changing.\n\nUse a clean, minimal background so the character remains the focus, with small subtle flourishes (motion lines, blush marks) supporting the emotions.\n\nThe final result should feel like a professional reference sheet for animation, comics, or character development — expressive, organized, and clearly based on the attached subject.'}, ar:{title:'أنمي'} },
+    { id:'sc6', cats:['showcase','short-films','commercial-videos'], vid:true, media:{url:'assets/library/car-showcase.mp4',type:'video'}, en:{title:'In-Car Product Showcase', body:'Create an ultra-realistic vertical POV video filmed from the perspective of a person sitting in the driver’s seat of a parked car, casually interacting with the attached product. It must feel authentic and spontaneous, like real smartphone footage rather than a professional advertisement.\n\nProduct accuracy is the highest priority: the attached product must remain perfectly identical to the reference image in every frame — same packaging, shape, logo, labels, colors and materials. No redesign or deformation.\n\nFormat: vertical 9:16, 8–10 seconds, native 4K, 30 FPS, HDR.\n\nCamera: realistic first-person POV as if from a modern flagship smartphone — natural handheld movement, subtle breathing motion, realistic autofocus, slight rolling shutter. No gimbal or drone stabilization.\n\nScene: the person is already seated in the parked car; a hand reaches to the console, picks up the product, rotates it naturally while keeping the logo visible, then places it back — casual and unscripted. Soft natural daylight through the windows, balanced exposure, realistic reflections.\n\nApply fine, physically accurate 35mm-style film grain and natural color science. The final result must be indistinguishable from real smartphone POV footage.'}, ar:{title:'عرض بالسيارة'} },
+    { id:'sc7', cats:['showcase','portraits','cinematic-scenes'], media:{url:'assets/library/cinematic-suite.jpg',type:'image'}, en:{title:'Cinematic Suite Portrait', body:'Transform the attached image into a cinematic indoor portrait set at night inside a luxury high-rise suite, with a large glass window wall in the background and softly blurred city lights through elegant vertical blinds. The atmosphere should feel sophisticated, moody, and refined, with a formal black-tie aesthetic.\n\nPreserve the subject’s identity, facial features, natural expression, and overall appearance exactly as shown in the original image. Do not introduce unrealistic facial retouching.\n\nUse a medium close-up composition at eye level, framed from a slightly off-center angle, as if shot on a Canon EOS 5D Mark IV with an 85mm f/1.2L lens at f/1.4, ISO 400, 1/100s.\n\nLighting: a soft diffused key light from camera left creating smooth highlights and subtle shadows, with a gentle fill light from the lower right. The background should be lit mainly by soft city bokeh through the window, kept out of focus.\n\nWhite balance around 3200K for warm indoor skin tones against cooler exterior city light. Apply a refined cinematic grade inspired by Kodak Vision3 film stock — soft contrast, rich clean color, and a polished, timeless editorial quality.'}, ar:{title:'صورة سينمائية'} },
     { id:'l1', cats:['product-ads','product-photography','product-ads'], en:{title:'Luxury product hero shot', body:'You are an award-winning product photographer. Create a hero shot of [Product] for a premium [Brand] campaign. Place it on [Surface] with soft golden-hour lighting, 85mm lens, shallow depth of field and warm tones. Minimal, luxurious mood, no text or logos. Format: 4:5, 4K, optimized for Midjourney v6.'}, ar:{title:'لقطة بطل لمنتج فاخر', body:'أنت مصوّر منتجات حائز على جوائز. أنشئ لقطة بطل لـ [المنتج] لحملة [العلامة] الفاخرة. ضعه على [السطح] بإضاءة ذهبية ناعمة، عدسة 85مم، عمق ميدان ضحل وألوان دافئة. مزاج فاخر بسيط، بلا نص أو شعارات. التنسيق: 4:5، 4K، مهيّأ لـ Midjourney v6.'} },
     { id:'l2', cats:['cinematic-scenes','commercial-videos'], en:{title:'Cinematic brand teaser', body:'You are a commercial film director. Produce a cinematic 8-second teaser for [Brand]. Scene: [Scene]. Slow dolly-in on the subject, low-key dramatic lighting, cool teal-and-orange grade, anamorphic bokeh. Constraints: no on-screen text, film-grain finish. Format: 2.35:1, 4K, optimized for Veo.'}, ar:{title:'تشويقة سينمائية لعلامة', body:'أنت مخرج أفلام إعلانية. أنتج تشويقة سينمائية مدتها 8 ثوانٍ لـ [العلامة]. المشهد: [المشهد]. دخول بطيء على الموضوع، إضاءة درامية منخفضة، تدرّج تركوازي-برتقالي، بوكيه أنامورفيك. القيود: بلا نص، لمسة حبيبات فيلم. التنسيق: 2.35:1، 4K، مهيّأ لـ Veo.'} },
     { id:'l3', cats:['social-ads','brand-campaigns','tiktok'], en:{title:'TikTok hook frame', body:'You are a social content creator. Design a scroll-stopping opening frame for a TikTok about [Topic] aimed at [Audience]. Bold vibrant colors, high-contrast, punchy composition with room for a caption. Format: 9:16, vertical, optimized for mobile.'}, ar:{title:'إطار افتتاحي لتيك توك', body:'أنت صانع محتوى اجتماعي. صمّم إطاراً افتتاحياً يوقف التمرير لفيديو تيك توك عن [الموضوع] موجّه لـ [الجمهور]. ألوان نابضة جريئة، تباين عالٍ، تكوين قوي مع مساحة للنص. التنسيق: 9:16، عمودي، مهيّأ للجوال.'} },
@@ -1380,94 +1530,10 @@ class Component extends DCLogic {
     this.setState({ authed:true, guest:false, page:'dash', accountOpen:false,
       authName:(user&&user.name)||'', authEmail:(user&&user.email)||'', authAvatar:(user&&user.avatarUrl)||'',
       authHasPassword:!!(user&&user.hasPassword), currentPass:'', newPass:'',
-      authPass:'', authErr:'', googleBusy:false,
+      authPass:'', authErr:'',
       tutorial:signup, tutorialStep:0 });
     this._loadUserData();
   }
-
-  // ---------------- Google Identity Services ----------------
-  _googleMessage=(kind)=>{
-    const T=this.T();
-    if(kind==='config') return T.googleNotConfigured;
-    if(kind==='link') return T.googleLinkFailed;
-    return T.googleFailed;
-  };
-  _loadGoogleSdk=()=>{
-    if(window.google&&window.google.accounts&&window.google.accounts.id) return Promise.resolve();
-    if(this._googleSdkPromise) return this._googleSdkPromise;
-    this._googleSdkPromise=new Promise((resolve,reject)=>{
-      const existing=document.querySelector('script[data-shotlab-google]');
-      const script=existing||document.createElement('script');
-      const done=()=>{ clearTimeout(this._googleLoadTimer); window.google&&window.google.accounts&&window.google.accounts.id?resolve():reject(new Error('GIS unavailable')); };
-      script.addEventListener('load',done,{once:true});
-      script.addEventListener('error',()=>{ clearTimeout(this._googleLoadTimer); reject(new Error('GIS load failed')); },{once:true});
-      if(!existing){
-        script.src='https://accounts.google.com/gsi/client';
-        script.async=true; script.defer=true; script.dataset.shotlabGoogle='true';
-        document.head.appendChild(script);
-      }
-      this._googleLoadTimer=setTimeout(()=>reject(new Error('GIS load timeout')),10000);
-    }).catch(e=>{ this._googleSdkPromise=null; throw e; });
-    return this._googleSdkPromise;
-  };
-  _prepareGoogleSignIn=async()=>{
-    try{
-      const config=await SL.googleConfig();
-      if(!config||!config.configured||!config.clientId){
-        this.setState({googleConfigured:false,googleReady:false});
-        if(/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) console.warn('[ShotLab] Google Sign-In is not configured.');
-        return false;
-      }
-      this._googleClientId=config.clientId;
-      this.setState({googleConfigured:true,googleSdkError:false});
-      await this._loadGoogleSdk();
-      window.google.accounts.id.initialize({
-        client_id:this._googleClientId,
-        callback:this._handleGoogleCredential,
-        auto_select:false,
-        cancel_on_tap_outside:true,
-        context:'signin',
-      });
-      this.setState({googleReady:true,googleSdkError:false});
-      return true;
-    }catch(e){
-      this.setState({googleReady:false,googleSdkError:true});
-      return false;
-    }
-  };
-  _finishGoogleAttempt=(message)=>{
-    this._googleRequestPending=false;
-    this.setState({googleBusy:false,...(message?{authErr:message}:{})});
-  };
-  _handleGoogleCredential=async(response)=>{
-    if(this._googleRequestPending) return;
-    if(!response||!response.credential){ this._finishGoogleAttempt(this._googleMessage('failed')); return; }
-    this._googleRequestPending=true;
-    try{
-      const result=await SL.google(response.credential);
-      const current=await SL.me().catch(()=>null);
-      const user=(current&&current.user)||result.user;
-      this._googleRequestPending=false;
-      this._applyAuthed(user);
-      this.flash(this.state.lang==='ar'?'مرحبا بعودتك.':'Welcome back.','✓');
-    }catch(e){
-      this._finishGoogleAttempt(this._googleMessage(e&&e.code==='GOOGLE_LINK_CONFLICT'?'link':'failed'));
-    }
-  };
-  _handleGoogleMoment=(notice)=>{
-    if(this._googleRequestPending||!this.state.googleBusy) return;
-    const notDisplayed=notice.isNotDisplayed&&notice.isNotDisplayed();
-    const skipped=notice.isSkippedMoment&&notice.isSkippedMoment();
-    const dismissed=notice.isDismissedMoment&&notice.isDismissedMoment();
-    if(!notDisplayed&&!skipped&&!dismissed) return;
-    const reason=(notice.getNotDisplayedReason&&notice.getNotDisplayedReason())||
-      (notice.getSkippedReason&&notice.getSkippedReason())||
-      (notice.getDismissedReason&&notice.getDismissedReason())||'';
-    // Closing/tapping outside is a normal cancellation; blocked/unsupported
-    // prompts receive a useful error and always restore the button.
-    const cancelled=reason==='user_cancel'||reason==='tap_outside'||reason==='cancel_called';
-    this._finishGoogleAttempt(cancelled?'':this._googleMessage('failed'));
-  };
 
   // ---------------- nav / theme / lang ----------------
   toggleLang=()=>this.setState(s=>({lang:s.lang==='en'?'ar':'en'}));
@@ -1479,6 +1545,8 @@ class Component extends DCLogic {
   toggleAccount=()=>this.setState(s=>({accountOpen:!s.accountOpen}));
   goAccount=(tab)=>{ if(this.state.guest){ this.openAuthGate(); return; } this.setState({page:'account', accountTab:tab, accountOpen:false}); };
   stop=(e)=>{ e.stopPropagation&&e.stopPropagation(); };
+  openLegal=(view)=>this.setState({legalView:view});
+  closeLegal=()=>this.setState({legalView:null});
 
   // ---------------- auth ----------------
   setAuthView=(v)=>this.setState({authView:v, authErr:''});
@@ -1512,18 +1580,9 @@ class Component extends DCLogic {
     SL.resetRequest(authEmail.trim()).then(()=>this.setState({resetSent:true})).catch(()=>this.setState({resetSent:true})); };
   backToLogin=()=>this.setState({authView:'login', resetSent:false, authErr:''});
   toForgot=()=>this.setAuthView('forgot');
-  socialSeam=async()=>{
-    if(this.state.googleBusy) return;
-    if(this.state.googleConfigured===false){ this.setState({authErr:this._googleMessage('config')}); return; }
-    this.setState({googleBusy:true,authErr:''});
-    const ready=this.state.googleReady||await this._prepareGoogleSignIn();
-    if(!ready){ this._finishGoogleAttempt(this.state.googleConfigured===false?this._googleMessage('config'):this._googleMessage('failed')); return; }
-    try{ window.google.accounts.id.prompt(this._handleGoogleMoment); }
-    catch(e){ this._finishGoogleAttempt(this._googleMessage('failed')); }
-  };
   continueGuest=()=>{ SL.guest().catch(()=>{}); this.setState({authed:true, guest:true, page:'dash', authName:'',authAvatar:''}); this.flash(this.state.lang==='en'?'Exploring as guest':'تصفّح كزائر'); };
   signInFromGuest=()=>this.setState({authed:false, guest:false, accountOpen:false, authView:'login'});
-  logout=()=>{ SL.logout().catch(()=>{}); try{ window.google&&window.google.accounts.id.disableAutoSelect(); }catch(e){} this.setState({authed:false, guest:false, accountOpen:false, authView:'login', authName:'', authEmail:'', authPass:'', authAvatar:'', page:'dash', resetSent:false, saved:[], history:[], userTemplates:[], favs:[]}); };
+  logout=()=>{ SL.logout().catch(()=>{}); this.setState({authed:false, guest:false, accountOpen:false, authView:'login', authName:'', authEmail:'', authPass:'', authAvatar:'', page:'dash', resetSent:false, saved:[], history:[], userTemplates:[], favs:[]}); };
   onCurrentPass=(e)=>this.setState({currentPass:e.target.value});
   onNewPass=(e)=>this.setState({newPass:e.target.value});
   saveProfile=()=>{ SL.updateProfile(this.state.authName.trim()).then(()=>this.flash(this.T().saveChanges,'✓')).catch(e=>this.flash(this._err(e))); };
@@ -1585,15 +1644,61 @@ class Component extends DCLogic {
   copyStudio=()=>this.copy(this.state.studioResult,'studio');
   studioToLab=()=>this.setState({labText:this.state.studioResult, page:'lab', labScored:true, showCompare:false});
   saveStudio=()=>this.saveTemplate(this.studioSummary()||(this.state.lang==='en'?'Studio prompt':'برومبت الاستوديو'), this.state.studioResult, this.state.lang==='en'?'Studio':'الاستوديو');
-  openPlatformModal=()=>{ if(this.guestBlock())return; this.setState({platformModal:true}); };
+  // mode: 'direct' (copy the prompt as-is, same as Studio) | 'ai' (ask the model to tailor it for the chosen platform first).
+  openPlatformModal=(prompt,mode)=>{ if(this.guestBlock())return; this.setState({platformModal:true, platformModalPrompt:prompt!==undefined?prompt:this.state.studioResult, platformModalMode:mode||'direct'}); };
   closePlatformModal=()=>this.setState({platformModal:false});
   // Build the platform URL, prefilling the prompt for platforms that accept it in the query string.
   platformUrl(pf,prompt){ if(pf&&pf.param&&prompt){ const sep=pf.url.includes('?')?'&':'?'; return pf.url+sep+pf.param+'='+encodeURIComponent(prompt); } return pf.url; }
-  choosePlatform=(pf)=>{ const prompt=this.state.studioResult||''; const url=this.platformUrl(pf,prompt);
+  choosePlatform=(pf)=>{
+    const prompt=this.state.platformModalPrompt||'';
+    if(this.state.platformModalMode==='ai'){
+      this.setState({platformModal:false});
+      // Open the blank tab synchronously (inside the click, so popup blockers allow it); navigate it once the AI response lands.
+      let win=null; try{ win=window.open('about:blank','_blank'); if(win) win.opener=null; }catch(e){}
+      this.flash((this.state.lang==='en'?'Customizing for ':'يُخصَّص لـ ')+pf.name,'✨');
+      SL.customize({prompt, platform:pf.name, platformType:pf.type, lang:this.state.lang}).then(r=>{
+        const adapted=r.prompt||prompt; const url=this.platformUrl(pf,adapted);
+        this.copy(adapted,'plat');
+        try{ if(win) win.location=url; else window.open(url,'_blank'); }catch(e){ window.open(url,'_blank'); }
+        this.flash((this.state.lang==='en'?'Ready — opening ':'جاهز — يفتح ')+pf.name);
+      }).catch(e=>{
+        const url=this.platformUrl(pf,prompt);
+        try{ if(win) win.location=url; }catch(err){}
+        this.flash(this._err(e));
+      });
+      return;
+    }
+    const url=this.platformUrl(pf,prompt);
     // Open the tab synchronously (inside the click) so popup blockers allow it, then copy the prompt.
     let win=null; try{ win=window.open(url,'_blank'); }catch(e){} if(win){ try{ win.opener=null; }catch(e){} }
     this.copy(prompt,'plat'); this.setState({platformModal:false});
     this.flash((this.state.lang==='en'?'Copied — opening ':'تم النسخ — يفتح ')+pf.name); this.logHistory('platform', pf.name); };
+  // ---------------- library: customize menu + AI customize ----------------
+  openCustomizeMenu=(p)=>{ if(this.guestBlock())return; this.setState({customizeModal:true, customizeModalItem:p}); };
+  closeCustomizeMenu=()=>this.setState({customizeModal:false, customizeModalItem:null});
+  pickCustomizeWithMe=()=>{ const p=this.state.customizeModalItem; this.setState({customizeModal:false, customizeModalItem:null}); if(p) this.openEdit(p); };
+  pickCustomizeWithAI=()=>{ const p=this.state.customizeModalItem; if(!p)return; this.setState({customizeModal:false, customizeModalItem:null, aiCustomizeModal:true, aiCustomizeItem:p, aiCustomizeInstruction:'', aiCustomizeResult:'', aiCustomizeLoading:false}); };
+  pickCustomizeToAI=()=>{ const p=this.state.customizeModalItem; if(!p)return; const body=this.bodyOf(p); this.setState({customizeModal:false, customizeModalItem:null}); this.openPlatformModal(body,'ai'); };
+  closeAiCustomize=()=>this.setState({aiCustomizeModal:false, aiCustomizeItem:null, aiCustomizeResult:'', aiCustomizeInstruction:''});
+  onAiCustomizeInstruction=(e)=>this.setState({aiCustomizeInstruction:e.target.value});
+  runAiCustomize=()=>{
+    const item=this.state.aiCustomizeItem; if(!item)return;
+    const instruction=this.state.aiCustomizeInstruction.trim();
+    if(!instruction){ this.flash(this.state.lang==='en'?'Describe what to change first.':'صف التغيير المطلوب أولاً.'); return; }
+    this.setState({aiCustomizeLoading:true});
+    SL.customize({prompt:this.bodyOf(item), instruction, lang:this.state.lang}).then(r=>{
+      this.setState({aiCustomizeResult:r.prompt||'', aiCustomizeLoading:false});
+    }).catch(e=>{ this.setState({aiCustomizeLoading:false}); this.flash(this._err(e)); });
+  };
+  copyAiCustomizeResult=()=>this.copy(this.state.aiCustomizeResult,'aicustom');
+  saveAiCustomizeResult=()=>{
+    const item=this.state.aiCustomizeItem; if(!item||!this.state.aiCustomizeResult)return;
+    const title=(this.state.lang==='en'?'Customized: ':'مخصّص: ')+this.titleOf(item);
+    this.saveTemplate(title, this.state.aiCustomizeResult, this.state.lang==='en'?'Library':'المكتبة');
+    this.setState({aiCustomizeModal:false, aiCustomizeItem:null, aiCustomizeResult:'', aiCustomizeInstruction:''});
+  };
+  aiCustomizeToLab=()=>{ if(!this.state.aiCustomizeResult)return; this.setState({labText:this.state.aiCustomizeResult, page:'lab', labScored:true, showCompare:false, aiCustomizeModal:false, aiCustomizeItem:null}); };
+  aiCustomizeChoosePlatform=()=>{ if(!this.state.aiCustomizeResult)return; const body=this.state.aiCustomizeResult; this.setState({aiCustomizeModal:false, aiCustomizeItem:null}); this.openPlatformModal(body,'direct'); };
 
   // ---------------- lab ----------------
   onLabText=(e)=>this.setState({labText:e.target.value, showCompare:false});
@@ -1625,7 +1730,7 @@ class Component extends DCLogic {
   saveTemplate(title,body,source){ if(this.guestBlock())return; const tmp='s'+Date.now()+Math.random().toString(36).slice(2,5); const item={id:tmp,title,body,source,ts:Date.now()}; this.setState(s=>({saved:[item,...s.saved], userTemplates:[{id:tmp,title,body,source,cats:['mine'],ts:item.ts},...s.userTemplates]}));
     SL.createTemplate({title,body,source,cats:['mine']}).then(r=>{ const t=r.template; this.setState(s=>({ saved:s.saved.map(x=>x.id===tmp?{id:t.id,title:t.title,body:t.body,source:t.source,ts:t.ts}:x), userTemplates:s.userTemplates.map(x=>x.id===tmp?t:x) })); }).catch(e=>{ this.setState(s=>({saved:s.saved.filter(x=>x.id!==tmp), userTemplates:s.userTemplates.filter(x=>x.id!==tmp)})); this.flash(this._err(e)); }); this.flash(this.state.lang==='en'?'Saved to library':'حُفظ في المكتبة','🔖'); this.logHistory('save',title); }
   deleteSaved=(id)=>{ this.setState(s=>({saved:s.saved.filter(x=>x.id!==id), userTemplates:s.userTemplates.filter(x=>x.id!==id)})); SL.deleteTemplate(id).catch(e=>this.flash(this._err(e))); };
-  sendToLab=(body)=>this.setState({labText:body, page:'lab', labScored:true, showCompare:false});
+  sendToLab=(body)=>{ if(this.guestBlock())return; this.setState({labText:body, page:'lab', labScored:true, showCompare:false}); };
   toggleFav=(id)=>{ if(this.guestBlock())return; const on=this.state.favs.includes(id); this.setState(s=>({favs:on?s.favs.filter(x=>x!==id):[...s.favs,id]})); (on?SL.removeFavorite(id):SL.addFavorite(id)).catch(e=>{ this.setState(s=>({favs:on?[...s.favs,id]:s.favs.filter(x=>x!==id)})); this.flash(this._err(e)); }); };
   allLibrary(){ const mine=this.state.userTemplates.map(t=>({id:t.id, cats:t.cats||['mine'], title:t.title, body:t.body, mine:true})); return [...mine, ...this.library]; }
 
@@ -1634,9 +1739,6 @@ class Component extends DCLogic {
   setCat=(c)=>this.setState({libCat:c});
   toggleFavFilter=()=>this.setState(s=>({favFilter:!s.favFilter}));
   toggleMine=()=>this.setState(s=>({mineFilter:!s.mineFilter}));
-  duplicate=(p)=>{ if(this.guestBlock())return; const t=this.titleOf(p), b=this.bodyOf(p); const tmp='d'+Date.now()+Math.random().toString(36).slice(2,5); const title=(this.state.lang==='en'?'Copy of ':'نسخة من ')+t; const item={id:tmp,title,body:b,source:'duplicate',cats:['mine'],ts:Date.now()}; this.setState(s=>({userTemplates:[item,...s.userTemplates], saved:[{id:tmp,title,body:b,source:'duplicate',ts:item.ts},...s.saved]}));
-    SL.createTemplate({title,body:b,source:'duplicate',cats:['mine']}).then(r=>{ const nt=r.template; this.setState(s=>({userTemplates:s.userTemplates.map(x=>x.id===tmp?nt:x), saved:s.saved.map(x=>x.id===tmp?{id:nt.id,title:nt.title,body:nt.body,source:nt.source,ts:nt.ts}:x)})); }).catch(e=>{ this.setState(s=>({userTemplates:s.userTemplates.filter(x=>x.id!==tmp), saved:s.saved.filter(x=>x.id!==tmp)})); this.flash(this._err(e)); });
-    this.flash(this.state.lang==='en'?'Duplicated':'تم النسخ','⧉'); };
   openEdit=(p)=>{ if(this.guestBlock())return; const flds=this.fieldsFor(p); const vals={}; flds.forEach(k=>{ vals[k]=(p.fieldVals&&p.fieldVals[k])||this.fieldDefs[k].def; }); this.setState({editOpen:true, editId:p.id, editTitle:this.titleOf(p), editBody:this.bodyOf(p), editSourceUser:!!p.mine, editFieldKeys:flds, editFields:vals}); };
   closeEdit=()=>this.setState({editOpen:false, editId:null});
   onEditTitle=(e)=>this.setState({editTitle:e.target.value});
@@ -1716,10 +1818,14 @@ class Component extends DCLogic {
     if(q) items=items.filter(p=>(this.titleOf(p)+' '+this.bodyOf(p)).toLowerCase().includes(q));
     const libResults=items.map(p=>({
       title:this.titleOf(p), preview:this.bodyOf(p),
+      hasMedia:!!p.media, isVideo:!!p.media&&p.media.type==='video', isImage:!!p.media&&p.media.type==='image', mediaUrl:p.media?p.media.url:'',
       tags:(p.mine?['mine']:(p.cats||[]).slice(0,2)).map(c=>({label:c==='mine'?(lang==='en'?'My template':'قالبي'):this.catLabel(c), color:this.catColor(c), tint:this.catColor(c)+'1f'})),
       favIcon:this.ico('star',16,this.state.favs.includes(p.id)), copyIcon:this.state.copied==='lib'+p.id?this.ico('check',13):this.ico('copy',13),
-      toggleFav:()=>this.toggleFav(p.id), edit:()=>this.openEdit(p), copy:()=>{this.copy(this.bodyOf(p),'lib'+p.id);}, duplicate:()=>this.duplicate(p), toLab:()=>this.sendToLab(this.bodyOf(p)),
+      toggleFav:()=>this.toggleFav(p.id), edit:()=>this.openEdit(p), copy:()=>{this.copy(this.bodyOf(p),'lib'+p.id);}, toLab:()=>this.sendToLab(this.bodyOf(p)),
+      openCustomizeMenu:()=>this.openCustomizeMenu(p), choosePlatform:()=>this.openPlatformModal(this.bodyOf(p),'direct'),
     }));
+    const showcaseResults=libResults.filter(p=>p.hasMedia), otherResults=libResults.filter(p=>!p.hasMedia);
+    const hasShowcaseResults=showcaseResults.length>0, hasOtherResults=otherResults.length>0;
     const catPill=(key)=>`display:flex;align-items:center;gap:8px;width:100%;text-align:${startSide};height:34px;padding:0 10px;border-radius:9px;border:none;background:${this.state.libCat===key?'rgba(96,31,255,.1)':'transparent'};color:${this.state.libCat===key?'var(--primary)':'var(--ink2)'};font-family:inherit;font-weight:${this.state.libCat===key?700:600};font-size:12.5px;cursor:pointer`;
     const mineBtn=(on)=>`display:flex;align-items:center;gap:8px;width:100%;text-align:${startSide};height:36px;padding:0 10px;border-radius:9px;border:none;background:${on?'rgba(96,31,255,.1)':'transparent'};color:${on?'var(--primary)':'var(--ink2)'};font-family:inherit;font-weight:600;font-size:12.5px;cursor:pointer`;
     const favBtnR=(on)=>`display:flex;align-items:center;gap:8px;width:100%;text-align:${startSide};height:36px;padding:0 10px;border-radius:9px;border:none;background:${on?'rgba(245,158,11,.12)':'transparent'};color:${on?'#d97706':'var(--ink2)'};font-family:inherit;font-weight:600;font-size:12.5px;cursor:pointer`;
@@ -1750,7 +1856,7 @@ class Component extends DCLogic {
       {icon:this.ico('flask',23),color:'#16a34a',tint:'rgba(34,197,94,.12)',star:false,key:'lab',t:{en:['Prompt Lab','Score every prompt, learn why, and improve.','Open Lab'],ar:['مختبر البرومبت','قيّم كل برومبت، تعلّم السبب، وحسّن.','افتح المختبر']}},
       {icon:this.ico('book',23),color:'#3b82f6',tint:'rgba(59,130,246,.12)',star:false,key:'library',t:{en:['Prompt Library','Browse, favorite and reuse your best prompts.','Open Library'],ar:['مكتبة البرومبتات','تصفّح وفضّل وأعد استخدام أفضل برومبتاتك.','افتح المكتبة']}},
     ];
-    const stepWord=lang==='en'?'Step ':'خطوة '; const features=featDefs.map((f,i)=>({icon:f.icon,color:f.color,tint:f.tint,star:f.star,step:stepWord+(i+1),title:f.t[lang][0],desc:f.t[lang][1],cta:f.t[lang][2],go:()=>this.nav(f.key)}));
+    const stepWord=lang==='en'?'Step ':'خطوة '; const features=featDefs.map((f,i)=>({icon:f.icon,color:f.color,tint:f.tint,star:f.star,step:stepWord+(i+1),title:f.t[lang][0],desc:f.t[lang][1],cta:f.t[lang][2],go:()=>{ if(this.state.guest&&f.key!=='library'&&f.key!=='dash'){ this.openAuthGate(); return; } this.nav(f.key); }}));
     const rctcfMini=this.elDefs.map(d=>({letter:d.letter,color:d.color,name:d[lang].name,role:d[lang].role}));
 
     const L=(en,ar)=>lang==='en'?en:ar;
@@ -1793,6 +1899,29 @@ class Component extends DCLogic {
       recentEmpty:L('No activity yet — generate or evaluate a prompt to get started.','لا نشاط بعد — أنشئ أو قيّم برومبت للبدء.'),
       footPrivacy:L('Privacy','الخصوصية'), footTerms:L('Terms','الشروط'), footContact:L('Contact','تواصل'), footCopy:'© 2026 ShotLab',
       goWorkspace:()=>{ if(this.state.guest){ this.openAuthGate(); return; } this.goAccount('saved'); },
+      // legal (privacy / terms / contact)
+      openPrivacy:()=>this.openLegal('privacy'), openTerms:()=>this.openLegal('terms'), openContact:()=>this.openLegal('contact'), closeLegal:this.closeLegal,
+      legalOpen:!!this.state.legalView, isPrivacy:this.state.legalView==='privacy', isTerms:this.state.legalView==='terms', isContact:this.state.legalView==='contact',
+      legalTitle:this.state.legalView==='privacy'?L('Privacy Policy','سياسة الخصوصية'):this.state.legalView==='terms'?L('Terms of Service','شروط الاستخدام'):L('Contact','تواصل معنا'),
+      icoMailBtn:this.ico('mail',16),
+      contactEmail:'majed.alsehli059@gmail.com', contactMailto:'mailto:majed.alsehli059@gmail.com',
+      privacyParas:[
+        L('ShotLab is a prompt-engineering tool for visual creators. This is a short, plain-language summary of what we collect and how we use it — not a substitute for formal legal advice.', 'ShotLab أداة لهندسة برومبتات الذكاء الاصطناعي لصنّاع المحتوى المرئي. هذا ملخّص مبسّط لما نجمعه وكيف نستخدمه — وليس بديلاً عن استشارة قانونية رسمية.'),
+        L('Account info: when you sign up we store your name, email and a securely hashed password. Continuing as a guest creates no account.', 'معلومات الحساب: عند التسجيل نحفظ اسمك وبريدك وكلمة مرور مشفّرة بأمان. التصفّح كزائر لا يُنشئ أي حساب.'),
+        L('Your prompts & uploads: ideas, prompts, and any image or video you upload are sent to our AI provider (OpenAI) to generate results, and stored so you can find them in your history, saved list and favorites.', 'برومبتاتك وملفاتك: الأفكار والبرومبتات وأي صورة أو فيديو ترفعه تُرسَل لمزوّد الذكاء الاصطناعي (OpenAI) لتوليد النتائج، وتُحفظ لتجدها في السجل والمحفوظات والمفضلة.'),
+        L('Cookies: we use one secure cookie to keep you signed in. No tracking or advertising cookies.', 'ملفات تعريف الارتباط: نستخدم كوكي واحدة آمنة لإبقائك مسجّلاً للدخول فقط. بلا كوكيز تتبّع أو إعلانات.'),
+        L("Sharing: we don't sell your data. It's only shared with the AI provider needed to generate and improve your prompts.", 'المشاركة: لا نبيع بياناتك. تُشارَك فقط مع مزوّد الذكاء الاصطناعي اللازم لتوليد برومبتاتك وتحسينها.'),
+        L('Your choices: delete saved prompts or clear your history anytime, or email us to delete your account and data entirely.', 'اختياراتك: احذف البرومبتات المحفوظة أو سجلّك في أي وقت، أو تواصل معنا لحذف حسابك وبياناتك بالكامل.'),
+      ],
+      termsParas:[
+        L("By using ShotLab you agree to these terms. If you don't agree, please don't use the app.", 'باستخدامك ShotLab فإنك توافق على هذه الشروط. إن لم توافق، الرجاء عدم استخدام التطبيق.'),
+        L('What ShotLab does: it helps you write and improve AI image/video prompts. It does not generate images or videos itself — you take the resulting prompt to a platform like Midjourney, Runway, ChatGPT or similar.', 'ما الذي يقدّمه ShotLab: يساعدك على كتابة وتحسين برومبتات الصور والفيديو للذكاء الاصطناعي. هو لا يولّد الصور أو الفيديو بنفسه — تأخذ البرومبت الناتج لمنصة مثل Midjourney أو Runway أو ChatGPT أو ما شابه.'),
+        L("Your content: you're responsible for what you type, upload and generate. Don't upload content you don't have rights to, and don't use ShotLab for anything illegal or harmful.", 'محتواك: أنت المسؤول عمّا تكتبه وترفعه وتولّده. لا ترفع محتوى لا تملك حقوقه، ولا تستخدم ShotLab في أي أمر غير قانوني أو مؤذٍ.'),
+        L('AI output: prompts and scores are produced by AI and may contain mistakes. Review everything before using it elsewhere.', 'مخرجات الذكاء الاصطناعي: البرومبتات والتقييمات تُنتَج بالذكاء الاصطناعي وقد تحتوي أخطاء. راجع كل شيء قبل استخدامه في مكان آخر.'),
+        L("Accounts: keep your password safe — you're responsible for activity on your account.", 'الحسابات: حافظ على سرية كلمة مرورك — أنت مسؤول عن النشاط على حسابك.'),
+        L('Changes: we may update these terms or the app over time. Continuing to use ShotLab after a change means you accept it.', 'التغييرات: قد نحدّث هذه الشروط أو التطبيق مع الوقت. استمرارك في استخدام ShotLab بعد أي تحديث يعني موافقتك عليه.'),
+        L('No warranty: ShotLab is provided "as is," without warranties of any kind.', 'بلا ضمان: يُقدَّم ShotLab "كما هو"، دون أي ضمانات من أي نوع.'),
+      ],
     };
 
     const menuItemStyle=`display:flex;align-items:center;gap:9px;width:100%;text-align:${rtl?'right':'left'};height:38px;padding:0 12px;border-radius:9px;border:none;background:transparent;font-family:inherit;font-weight:600;font-size:13px;color:var(--ink2);cursor:pointer`;
@@ -1808,12 +1937,7 @@ class Component extends DCLogic {
       authSubtitle:isForgot?(lang==='en'?'Enter your email and we’ll send a reset link.':'أدخل بريدك وسنرسل رابط إعادة التعيين.'):isSignup?T.authCreateSub:T.authWelcomeSub,
       authName:this.state.authName, authEmail:this.state.authEmail, authPass:this.state.authPass, authErr:this.state.authErr, showAuthErr:!!this.state.authErr,
       onAuthName:this.onAuthField('authName'), onAuthEmail:this.onAuthField('authEmail'), onAuthPass:this.onAuthField('authPass'),
-      authPitch, socialSeam:this.socialSeam, toForgot:this.toForgot, backToLogin:this.backToLogin, backArrow:rtl?'→':'←',
-      googleBusy:this.state.googleBusy, googleIdle:!this.state.googleBusy,
-      googleDisabled:this.state.googleBusy||this.state.googleConfigured===false,
-      googleUnavailable:this.state.googleConfigured===false,
-      googleCursor:(this.state.googleBusy||this.state.googleConfigured===false)?'not-allowed':'pointer',
-      googleOpacity:(this.state.googleBusy||this.state.googleConfigured===false)?0.65:1,
+      authPitch, toForgot:this.toForgot, backToLogin:this.backToLogin, backArrow:rtl?'→':'←',
       fmSent:isForgot&&this.state.resetSent, notSent:!(isForgot&&this.state.resetSent), fmForgot:isForgot&&!this.state.resetSent, fmNormal:!isForgot,
       authPrimaryAction:isForgot?this.submitReset:this.submitAuth, authPrimaryLabel:isForgot?T.sendLink:(isSignup?T.signup:T.login),
       authSwitchPrompt:isSignup?T.haveAccount:T.noAccount, authSwitchLabel:isSignup?T.login:T.signup, toggleAuthView:()=>this.setAuthView(isSignup?'login':'signup'),
@@ -1841,12 +1965,12 @@ class Component extends DCLogic {
       icoSettingsM:this.ico('settings',16), icoStarM:this.ico('star',16), icoClockM:this.ico('clock',16), icoLogout:this.ico('logout',16),
       icoStudioH:this.ico('sparkles',20), icoLabH:this.ico('flask',20), icoLibH:this.ico('book',20),
       icoPaperclip:this.ico('image',15), icoEmptyFilm:this.ico('video',34), icoEmptyLab:this.ico('flask',34),
-      icoBulb:this.ico('lightbulb',15), icoBookmarkBtn:this.ico('bookmark',16), icoRocketBtn:this.ico('rocket',16), icoFlaskBtn:this.ico('flask',15),
+      icoBulb:this.ico('lightbulb',15), icoBookmarkBtn:this.ico('bookmark',16), icoRocketBtn:this.ico('rocket',16), icoFlaskBtn:this.ico('flask',15), icoSparkBtn:this.ico('sparkles',14), icoSlidersBtn:this.ico('sliders',16),
       icoSun:this.ico('sun',15), icoMoon:this.ico('moon',15), icoLogoMark:React.createElement('div',{style:{width:'100%',height:'100%',background:'linear-gradient(90deg,#601fff,#b84af1,#fa5e85,#ff9900,#601fff)',backgroundSize:'200% auto',animation:'shimmer 7s linear infinite',WebkitMask:'url(assets/logo-mark.png) center/contain no-repeat',mask:'url(assets/logo-mark.png) center/contain no-repeat'}}),
-      icoDup:this.ico('copy',14), icoTrash:this.ico('trash',13), icoCopyBtn:this.ico('copy',13),
+      icoTrash:this.ico('trash',13), icoCopyBtn:this.ico('copy',13),
       icoEmptySaved:this.ico('bookmark',30), icoEmptyStar:this.ico('star',30), icoEmptyClock:this.ico('clock',30),
       icoPlus:this.ico('plus',16), icoLangGlobe:this.ico('globe',15),
-      goDash:()=>this.nav('dash'), goStudio:()=>this.nav('studio'), goLibrary:()=>this.nav('library'), goSettings:()=>this.goAccount('settings'), goFavs:()=>this.goAccount('favs'), goHistoryTab:()=>this.goAccount('history'),
+      goDash:()=>this.nav('dash'), goStudio:()=>{ if(this.guestBlock())return; this.nav('studio'); }, goLibrary:()=>this.nav('library'), goSettings:()=>this.goAccount('settings'), goFavs:()=>this.goAccount('favs'), goHistoryTab:()=>this.goAccount('history'),
       navItems,
       // pages
       isDash:page==='dash', isStudio:page==='studio', isLab:page==='lab', isLibrary:page==='library', isAccount:page==='account',
@@ -1861,7 +1985,7 @@ class Component extends DCLogic {
       heroWand:this.ico('wand',18), heroBook:this.ico('book',17), fp1Icon:this.ico('sparkles',15), fpRocket:this.ico('rocket',17),
       heroWandLg:this.ico('sparkles',24), heroWandSm:this.ico('sparkles',15), heroArrow:this.ico('arrow',16),
       checkIco:this.ico('check',13), uploadIco:this.ico('upload',17), flaskIco:this.ico('flask',24), bookIco:this.ico('book',24), searchIcoLg:this.ico('search',15),
-      goLab:()=>this.nav('lab'), labCardOrder:0, labTextOrder:1,
+      goLab:()=>{ if(this.guestBlock())return; this.nav('lab'); }, labCardOrder:0, labTextOrder:1,
       dbBadge:lang==='en'?'Your prompt workspace':'مساحة برومبتاتك',
       dbPre:lang==='en'?'Make your ':'اصنع ', dbHi:lang==='en'?'shot':'لقطتك', dbPost:'',
       dbSub:lang==='en'?'AI-powered prompt engineering platform for creators who demand better results.':'منصة هندسة برومبت مدعومة بالذكاء الاصطناعي لصنّاع المحتوى الطامحين لنتائج أفضل.',
@@ -1899,7 +2023,18 @@ class Component extends DCLogic {
       studioEmpty:!this.state.studioLoading&&!this.state.studioResult, studioLoading:this.state.studioLoading, studioDone:!this.state.studioLoading&&!!this.state.studioResult,
       studioResult:this.state.studioResult, studioLoadingText:lang==='en'?'Engineering your prompt…':'يتم هندسة برومبتك…',
       copyStudio:this.copyStudio, copyStudioLabel:this.state.copied==='studio'?T.copied:T.copy, studioToLab:this.studioToLab, saveStudio:this.saveStudio,
-      openPlatformModal:this.openPlatformModal, platformModal:this.state.platformModal, closePlatformModal:this.closePlatformModal, platforms, stop:this.stop,
+      openPlatformModal:()=>this.openPlatformModal(this.state.studioResult,'direct'), platformModal:this.state.platformModal, closePlatformModal:this.closePlatformModal, platforms, stop:this.stop,
+      // customize menu + AI customize (library)
+      customizeModal:this.state.customizeModal, closeCustomizeMenu:this.closeCustomizeMenu,
+      pickCustomizeWithMe:this.pickCustomizeWithMe, pickCustomizeWithAI:this.pickCustomizeWithAI, pickCustomizeToAI:this.pickCustomizeToAI,
+      aiCustomizeModal:this.state.aiCustomizeModal, closeAiCustomize:this.closeAiCustomize,
+      aiCustomizeItemTitle:this.state.aiCustomizeItem?this.titleOf(this.state.aiCustomizeItem):'',
+      aiCustomizeInstruction:this.state.aiCustomizeInstruction, onAiCustomizeInstruction:this.onAiCustomizeInstruction,
+      runAiCustomize:this.runAiCustomize, aiCustomizeLoading:this.state.aiCustomizeLoading?1:0, aiCustomizeBtnOpacity:this.state.aiCustomizeLoading?0.6:1,
+      aiCustomizeBtnLabel:this.state.aiCustomizeLoading?(lang==='en'?'Customizing…':'يتم التخصيص…'):(lang==='en'?'Customize with AI':'خصّص بالذكاء الاصطناعي'),
+      hasAiCustomizeResult:!!this.state.aiCustomizeResult, aiCustomizeResult:this.state.aiCustomizeResult,
+      copyAiCustomizeResult:this.copyAiCustomizeResult, aiCustomizeCopyIcon:this.state.copied==='aicustom'?this.ico('check',13):this.ico('copy',13),
+      saveAiCustomizeResult:this.saveAiCustomizeResult, aiCustomizeToLab:this.aiCustomizeToLab, aiCustomizeChoosePlatform:this.aiCustomizeChoosePlatform,
       // lab
       labText:this.state.labText, onLabText:this.onLabText, loadLabSample:this.loadLabSample, clearLab:this.clearLab, runScore:this.runScore,
       labWordCount:(this.state.labText.trim()?this.state.labText.trim().split(/\s+/).length:0)+(lang==='en'?' words':' كلمة'),
@@ -1908,11 +2043,12 @@ class Component extends DCLogic {
       gaps, hasGaps:gaps.length>0, noGaps:gaps.length===0, endAlign,
       improveLab:this.improveLab, saveLabTemplate:this.saveLabTemplate,
       saveLabLabel:canSave?T.saveTemplate:(T.saveTemplate), saveGateNote:!canSave,
-      saveLabStyle:`height:46px;padding:0 18px;border-radius:12px;border:1px solid var(--border2);background:var(--surface);color:${canSave?'var(--ink2)':'var(--faint)'};font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer`,
+      saveLabStyle:`height:46px;padding:0 18px;border-radius:12px;border:1px solid var(--border2);background:var(--surface);color:${canSave?'var(--ink2)':'var(--faint)'};font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px`,
       showCompare:this.state.showCompare, beforeText:this.state.beforeText, afterText:this.state.afterText, scoreBefore:this.state.scoreBefore, scoreAfter:this.state.scoreAfter,
       useImproved:this.useImproved, copyImproved:this.copyImproved, copyImprovedLabel:this.state.copied==='improved'?T.copied:T.copy,
       // library
       libQuery:this.state.libQuery, onLibSearch:this.onLibSearch, libCatGroups, libResults, hasResults:libResults.length>0, noResults:libResults.length===0, activeCatLabel, resultCountLabel:libResults.length+(lang==='en'?(libResults.length===1?' prompt':' prompts'):' برومبت'),
+      showcaseResults, otherResults, hasShowcaseResults, hasOtherResults,
       icoSearch:this.ico('search',16), icoLayers:this.ico('layers',15), icoStarFilter:this.ico('star',15,this.state.favFilter),
       favFilter:this.state.favFilter, toggleFavFilter:this.toggleFavFilter,
       favRailStyle:favBtnR(this.state.favFilter), favCount:this.state.favs.length,
@@ -1921,7 +2057,7 @@ class Component extends DCLogic {
       libEmptyIcon:this.state.mineFilter?this.ico('layers',30):(this.state.favFilter?this.ico('star',30):this.ico('search',30)),
       libEmptyText:this.state.mineFilter?(lang==='en'?'No templates yet. Save a prompt from the Studio or Lab and it appears here.':'لا قوالب بعد. احفظ برومبت من الاستوديو أو المختبر وسيظهر هنا.'):(this.state.favFilter?T.favsEmpty:(lang==='en'?'No prompts match your search. Try another keyword or category.':'لا نتائج مطابقة. جرّب كلمة أو فئة أخرى.')),
       mineEmptyCta:this.state.mineFilter,
-      goStudioLib:()=>this.nav('studio'),
+      goStudioLib:()=>{ if(this.guestBlock())return; this.nav('studio'); },
       // edit drawer
       editOpen:this.state.editOpen, closeEdit:this.closeEdit, editTitle:this.state.editTitle, editBody:this.state.editBody, onEditTitle:this.onEditTitle, onEditBody:this.onEditBody, saveEdit:this.saveEdit,
       copyEdit:this.copyEdit, copyEditLabel:this.state.copied==='edit'?T.copied:T.copy,

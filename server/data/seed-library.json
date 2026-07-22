@@ -1,5 +1,139 @@
 [
   {
+    "id": "sc1",
+    "cats": [
+      "showcase",
+      "portraits",
+      "cinematic-scenes"
+    ],
+    "media": {
+      "url": "/library-media/lavender-field.jpg",
+      "type": "image"
+    },
+    "en": {
+      "title": "Lavender Field Portrait",
+      "body": "Transform this image into a cinematic portrait photograph.\n\nDress the subject in traditional Saudi attire: a black thobe, a matching head covering, and sunglasses. Preserve the authenticity of the clothing, including the fabric texture, folds, fit, and all accessory details, so the outfit feels realistic and true to life.\n\nPlace the subject lying naturally in a wide open field of purple flowers beneath a clear sky. The pose should feel relaxed, natural, and visually balanced, creating a calm and elegant outdoor portrait.\n\nUse a realistic photography style with natural daylight. The lighting should feel soft and believable, with gentle highlights and natural shadows that flatter the subject without looking artificial.\n\nKeep the depth of field shallow so the subject remains in sharp focus while the surrounding field and distant horizon blur softly into the background. The image should still preserve a sense of the wide landscape and open space.\n\nCamera settings: Aperture f/2.8 to f/4, ISO 100, Shutter speed 1/1000s.\n\nThe final result should feel serene, realistic, and cinematic — an elegant portrait that captures both the subject and the beauty of the expansive landscape."
+    },
+    "ar": {
+      "title": "الخزامى"
+    }
+  },
+  {
+    "id": "sc2",
+    "cats": [
+      "showcase",
+      "portraits",
+      "dramatic-shots"
+    ],
+    "media": {
+      "url": "/library-media/moon-orb.jpg",
+      "type": "image"
+    },
+    "en": {
+      "title": "Moonlit Orb Portrait",
+      "body": "Transform this image into a dramatic low-light portrait with a mystical and cinematic mood.\n\nPosition the subject centered in the frame and facing straight toward the camera, holding a glowing orb that resembles the moon, serving as the only light source in the scene.\n\nThe glowing orb should cast a warm golden light onto the subject’s face and hands, creating soft illumination and a strong sense of intimacy. The background should fade completely into pure black.\n\nUse a tight portrait crop with the main focus on the subject’s face and the glowing orb. Keep the depth of field shallow.\n\nCamera settings: Aperture f/2.8, ISO 400–800, Shutter speed 1/60s.\n\nDeepen the blacks, enhance the warm golden glow, increase contrast for a chiaroscuro mood, and keep skin tones natural.\n\nThe final image should feel mystical, surreal, and intimate — a dreamlike cosmic portrait with cinematic contrast and quiet emotional intensity."
+    },
+    "ar": {
+      "title": "صورة القمر"
+    }
+  },
+  {
+    "id": "sc3",
+    "cats": [
+      "showcase",
+      "commercial-videos",
+      "product-ads"
+    ],
+    "vid": true,
+    "media": {
+      "url": "/library-media/train-window.mp4",
+      "type": "video"
+    },
+    "en": {
+      "title": "Magical Train Window",
+      "body": "Create a premium 10-second cinematic product commercial inspired by a \"Magical Train Window Moment.\" Use the attached product as the exact visual reference and seamlessly place it into a luxurious train environment.\n\nProduct accuracy is the highest priority: the attached product must remain completely identical to the reference image throughout — same packaging, shape, logo, label, colors, materials and reflections. No redesign or reinterpretation.\n\n0–2s: fade in, gentle push-in reveals the product beside the train window, warm cabin lighting, subtle train vibration.\n2–5s: smooth cinematic orbit around the product while an enchanted but believable landscape (misty mountains, glowing fields, golden sunset light) passes outside with realistic parallax.\n5–8s: elegant rack focus between the sharp product and the soft landscape, gentle window condensation and haze.\n8–10s: refined hero composition, camera nearly still, warm light wrapping around the product.\n\nStyle: luxury travel advertisement, emotional and poetic, analog 35mm film grain, natural reflections, sophisticated color grading. Format: 10s, cinematic, photorealistic, native 4K."
+    },
+    "ar": {
+      "title": "نافذة القطار"
+    }
+  },
+  {
+    "id": "sc4",
+    "cats": [
+      "showcase",
+      "portraits",
+      "architecture"
+    ],
+    "media": {
+      "url": "/library-media/kingdom-tower.jpg",
+      "type": "image"
+    },
+    "en": {
+      "title": "Kingdom Tower Rooftop",
+      "body": "Transform the attached image into a cinematic nighttime rooftop portrait set against a modern Saudi Arabian cityscape, inspired by Riyadh or Jeddah.\n\nPreserve the subject’s identity, facial features, natural expression, and overall appearance exactly as shown in the reference image. Do not alter or beautify the face.\n\nPlace the subject confidently near the edge of a modern rooftop, looking out across the illuminated city. In the background, show a vibrant urban skyline with illuminated high-rise towers, glowing windows, and subtle neon tones.\n\nUse a shallow depth of field so the subject remains sharp while the skyline falls into a soft cinematic blur, with realistic bokeh and atmospheric haze.\n\nLighting: soft ambient nighttime illumination with rim lighting around the subject’s profile. Apply cinematic color grading with deep night blues, warm golden city lights, and restrained neon accents, plus subtle film grain.\n\nCamera settings: Aperture f/2.0, ISO 800, Shutter speed 1/125s, Focal length 50mm.\n\nThe final result should resemble a professionally photographed nighttime editorial portrait, with cinematic lighting and authentic urban atmosphere."
+    },
+    "ar": {
+      "title": "برج المملكة"
+    }
+  },
+  {
+    "id": "sc5",
+    "cats": [
+      "showcase",
+      "storytelling"
+    ],
+    "media": {
+      "url": "/library-media/anime-sheet.jpg",
+      "type": "image"
+    },
+    "en": {
+      "title": "Anime Character Sheet",
+      "body": "Transform the attached image into a polished, expressive character reference sheet based closely on the subject’s appearance.\n\nPreserve the subject’s recognizable facial features, face shape, hairstyle, skin tone, and overall identity while adapting them into a clean anime-inspired illustration style: smooth refined linework, soft warm colors, subtle gradient shading, natural skin tones, simple clothing.\n\nArrange several portraits of the same character in a professional character-sheet layout with a variety of head angles (front-facing, three-quarter, profile) and multiple clearly distinct expressions (happiness, anger, shyness, confusion, surprise, sadness, calm).\n\nMaintain perfect character consistency across every variation — facial proportions, hairstyle, eye shape, and clothing must remain identical, with only expression and angle changing.\n\nUse a clean, minimal background so the character remains the focus, with small subtle flourishes (motion lines, blush marks) supporting the emotions.\n\nThe final result should feel like a professional reference sheet for animation, comics, or character development — expressive, organized, and clearly based on the attached subject."
+    },
+    "ar": {
+      "title": "أنمي"
+    }
+  },
+  {
+    "id": "sc6",
+    "cats": [
+      "showcase",
+      "short-films",
+      "commercial-videos"
+    ],
+    "vid": true,
+    "media": {
+      "url": "/library-media/car-showcase.mp4",
+      "type": "video"
+    },
+    "en": {
+      "title": "In-Car Product Showcase",
+      "body": "Create an ultra-realistic vertical POV video filmed from the perspective of a person sitting in the driver’s seat of a parked car, casually interacting with the attached product. It must feel authentic and spontaneous, like real smartphone footage rather than a professional advertisement.\n\nProduct accuracy is the highest priority: the attached product must remain perfectly identical to the reference image in every frame — same packaging, shape, logo, labels, colors and materials. No redesign or deformation.\n\nFormat: vertical 9:16, 8–10 seconds, native 4K, 30 FPS, HDR.\n\nCamera: realistic first-person POV as if from a modern flagship smartphone — natural handheld movement, subtle breathing motion, realistic autofocus, slight rolling shutter. No gimbal or drone stabilization.\n\nScene: the person is already seated in the parked car; a hand reaches to the console, picks up the product, rotates it naturally while keeping the logo visible, then places it back — casual and unscripted. Soft natural daylight through the windows, balanced exposure, realistic reflections.\n\nApply fine, physically accurate 35mm-style film grain and natural color science. The final result must be indistinguishable from real smartphone POV footage."
+    },
+    "ar": {
+      "title": "عرض بالسيارة"
+    }
+  },
+  {
+    "id": "sc7",
+    "cats": [
+      "showcase",
+      "portraits",
+      "cinematic-scenes"
+    ],
+    "media": {
+      "url": "/library-media/cinematic-suite.jpg",
+      "type": "image"
+    },
+    "en": {
+      "title": "Cinematic Suite Portrait",
+      "body": "Transform the attached image into a cinematic indoor portrait set at night inside a luxury high-rise suite, with a large glass window wall in the background and softly blurred city lights through elegant vertical blinds. The atmosphere should feel sophisticated, moody, and refined, with a formal black-tie aesthetic.\n\nPreserve the subject’s identity, facial features, natural expression, and overall appearance exactly as shown in the original image. Do not introduce unrealistic facial retouching.\n\nUse a medium close-up composition at eye level, framed from a slightly off-center angle, as if shot on a Canon EOS 5D Mark IV with an 85mm f/1.2L lens at f/1.4, ISO 400, 1/100s.\n\nLighting: a soft diffused key light from camera left creating smooth highlights and subtle shadows, with a gentle fill light from the lower right. The background should be lit mainly by soft city bokeh through the window, kept out of focus.\n\nWhite balance around 3200K for warm indoor skin tones against cooler exterior city light. Apply a refined cinematic grade inspired by Kodak Vision3 film stock — soft contrast, rich clean color, and a polished, timeless editorial quality."
+    },
+    "ar": {
+      "title": "صورة سينمائية"
+    }
+  },
+  {
     "id": "l1",
     "cats": [
       "product-ads",

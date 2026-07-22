@@ -141,8 +141,10 @@ model LibraryPrompt {
   bodyEn  String
   titleAr String
   bodyAr  String
-  fields  String[] @default([])
-  sort    Int      @default(0)
+  fields    String[] @default([])
+  sort      Int      @default(0)
+  mediaUrl  String?
+  mediaType String?
 
   @@map("library_prompts")
 }

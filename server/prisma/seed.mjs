@@ -25,6 +25,8 @@ async function main() {
       bodyAr: p.ar?.body ?? bodyEn,
       fields: p.fields || [],
       sort: i,
+      mediaUrl: p.media?.url ?? null,
+      mediaType: p.media?.type ?? null,
     };
     await prisma.libraryPrompt.upsert({
       where: { id: p.id },

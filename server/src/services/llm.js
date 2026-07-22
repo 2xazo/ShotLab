@@ -12,12 +12,15 @@ import {
   scoreUser,
   improveSystem,
   improveUser,
+  customizeSystem,
+  customizeUser,
   ELEMENTS,
 } from '../prompts/index.js';
 import {
   heuristicScore,
   heuristicGenerate,
   heuristicImprove,
+  heuristicCustomize,
 } from './heuristics.js';
 
 let _openai = null;
@@ -166,4 +169,15 @@ export async function improvePrompt({ prompt, lang = 'en' }) {
 
   const afterScore = (await scorePrompt({ prompt: after, lang })).total;
   return { before, after, beforeScore, afterScore, source };
+}
+
+export async function customizePrompt({ prompt, instruction, platform, lang = 'en' }) {
+  const json = await callJson({
+    system: customizeSystem(lang),
+    user: customizeUser({ prompt, instruction, platform }),
+  });
+  if (json?.prompt && typeof json.prompt === 'string') {
+    return { prompt: json.prompt.trim(), source: 'model' };
+  }
+  return { prompt: heuristicCustomize({ prompt, instruction, platform, lang }), source: 'heuristic' };
 }
