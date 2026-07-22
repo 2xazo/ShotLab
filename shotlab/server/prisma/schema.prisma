@@ -1,0 +1,146 @@
+// ShotLab — Prisma schema
+// All tables live in a dedicated `shotlab` Postgres schema (set via the
+// ?schema=shotlab param on DATABASE_URL) so ShotLab can share a database
+// with other apps without name collisions.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String? // null for OAuth-only accounts
+  provider     String   @default("password") // password | google
+  providerId   String? // subject id from the OAuth provider
+  avatarUrl    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  templates    Template[]
+  savedPrompts SavedPrompt[]
+  favorites    Favorite[]
+  history      History[]
+  uploads      Upload[]
+  resetTokens  PasswordResetToken[]
+
+  @@map("users")
+}
+
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  userId    String
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("password_reset_tokens")
+}
+
+// User-created / duplicated templates. Mirrors the frontend `sl_templates`
+// shape: { id, title, body, fields, fieldVals, cats, ts } plus a `source`.
+model Template {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  body      String
+  source    String   @default("mine") // mine | studio | lab | duplicate | import
+  cats      String[] @default([])
+  fields    String[] @default([]) // ordered field keys (e.g. ["aspect","duration"])
+  fieldVals Json     @default("{}") // { fieldKey: value }
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("templates")
+}
+
+// Quick-saved prompts. Mirrors `sl_saved`: { id, title, body, source, ts }.
+model SavedPrompt {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  body      String
+  source    String   @default("studio") // studio | lab | library | manual
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("saved_prompts")
+}
+
+// Favorited prompts. `promptId` references a curated library id (e.g. "l1")
+// or a user template id. Mirrors `sl_favs` (an array of ids) per user.
+model Favorite {
+  id        String   @id @default(cuid())
+  userId    String
+  promptId  String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, promptId])
+  @@index([userId])
+  @@map("favorites")
+}
+
+// Activity feed. Mirrors `sl_history`: { id, type, label, ts }, capped 60/user.
+model History {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String // generate | score | improve | save | platform
+  label     String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@map("history")
+}
+
+// Uploaded reference media used by Studio generation.
+model Upload {
+  id        String   @id @default(cuid())
+  userId    String
+  fileId    String   @unique
+  kind      String // image | video
+  mimeType  String
+  size      Int
+  storage   String   @default("local") // local | s3
+  path      String // disk path or S3 key
+  url       String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("uploads")
+}
+
+// Curated library prompts, seeded from the frontend `library` array.
+model LibraryPrompt {
+  id       String   @id // keep original ids: l1, p1, s1, ...
+  cats     String[] @default([])
+  titleEn  String
+  bodyEn   String
+  titleAr  String
+  bodyAr   String
+  fields   String[] @default([])
+  sort     Int      @default(0)
+
+  @@map("library_prompts")
+}

@@ -6,7 +6,7 @@ import { loadSession, requireUser } from '../middleware/auth.js';
 import { aiLimiter } from '../middleware/rateLimit.js';
 import { badRequest } from '../lib/errors.js';
 import { imageReferenceUrl } from '../services/storage.js';
-import { generatePrompt, scorePrompt, improvePrompt, customizePrompt } from '../services/llm.js';
+import { generatePrompt, scorePrompt, improvePrompt } from '../services/llm.js';
 
 const router = Router();
 router.use(loadSession, requireUser); // all AI routes require a real user (guests get 403)
@@ -85,32 +85,6 @@ router.post(
     const result = await improvePrompt({ prompt, lang });
     await logHistory(req.userId, 'improve', prompt.slice(0, 60));
     res.json(result);
-  })
-);
-
-// ---------------- customize (Library: "with AI" / "to a specific platform") ----------------
-const customizeSchemaBody = z.object({
-  prompt: z.string().min(1).max(6000),
-  instruction: z.string().max(500).optional().default(''),
-  platform: z.string().max(60).optional().default(''),
-  platformType: z.string().max(20).optional().default(''),
-  lang: langSchema,
-});
-
-router.post(
-  '/customize',
-  aiLimiter,
-  ah(async (req, res) => {
-    const { prompt, instruction, platform, platformType, lang } = customizeSchemaBody.parse(req.body);
-    if (!instruction.trim() && !platform.trim()) throw badRequest('Provide an instruction or a target platform.');
-    const result = await customizePrompt({
-      prompt,
-      instruction: instruction.trim(),
-      platform: platform.trim() ? { name: platform.trim(), type: platformType } : null,
-      lang,
-    });
-    await logHistory(req.userId, 'customize', platform || instruction.slice(0, 60));
-    res.json({ prompt: result.prompt, source: result.source });
   })
 );
 

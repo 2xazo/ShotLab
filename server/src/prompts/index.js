@@ -82,26 +82,3 @@ Return STRICT JSON: {"after": "<the improved prompt string with \\n line breaks>
 }
 
 export const improveUser = (prompt) => `Original prompt:\n"""\n${prompt}\n"""`;
-
-// -------- CUSTOMIZE (Library: "with AI" / "to a specific platform") --------
-export function customizeSystem(lang) {
-  const langLine = lang === 'ar' ? 'Write the customized prompt in Arabic.' : 'Write the customized prompt in English.';
-  return `You are ShotLab's prompt customizer for AI image/video prompts.
-${RCTCF_GUIDE}
-
-Rewrite the given base prompt to satisfy the requested change(s) below, while keeping the RCTCF structure and the "Role:", "Context:", "Task:", "Constraints:", "Format:" labels each on their own line. Preserve everything from the base prompt that isn't asked to change. ${langLine} Do not add commentary or code fences.
-
-Return STRICT JSON: {"prompt": "<the customized prompt string with \\n line breaks>"}`;
-}
-
-export function customizeUser({ prompt, instruction, platform }) {
-  const lines = [`Base prompt:\n"""\n${prompt}\n"""`];
-  if (instruction) lines.push(`Requested change: ${instruction}`);
-  if (platform) {
-    lines.push(
-      `Target platform: ${platform.name}${platform.type ? ` (${platform.type})` : ''}. Adapt the "Format:" line and any platform-specific conventions (aspect ratio flags, resolution, style keywords) to match how prompts are typically written for ${platform.name}.`
-    );
-  }
-  if (!instruction && !platform) lines.push('No specific change requested — lightly polish the prompt for clarity while keeping it otherwise identical.');
-  return lines.join('\n\n');
-}

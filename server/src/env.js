@@ -5,41 +5,16 @@ function bool(v, def = false) {
   return v === 'true' || v === '1' || v === 'yes';
 }
 
-const INSECURE_DEFAULT_JWT_SECRET = 'dev-insecure-secret-change-me';
-const isProd = (process.env.NODE_ENV || 'development') === 'production';
-
-// Refuse to boot in production with a missing/default JWT secret — that secret is
-// visible in this public source file, so anyone could forge a valid session token.
-if (isProd && (!process.env.JWT_SECRET || process.env.JWT_SECRET === INSECURE_DEFAULT_JWT_SECRET)) {
-  console.error(
-    '\n[FATAL] JWT_SECRET is missing or using the insecure default in production.\n' +
-      '  Generate one with: node -e "console.log(require(\'crypto\').randomBytes(48).toString(\'hex\'))"\n' +
-      '  and set it as the JWT_SECRET environment variable.\n'
-  );
-  process.exit(1);
-}
-
-// Refuse to boot in production without COOKIE_SECURE — browsers reject a
-// SameSite=None cookie that isn't also Secure, which would silently break login
-// rather than just being "less safe."
-if (isProd && !bool(process.env.COOKIE_SECURE, false)) {
-  console.error(
-    '\n[FATAL] COOKIE_SECURE must be "true" in production (the app is served over HTTPS).\n' +
-      '  Set COOKIE_SECURE=true in your environment variables.\n'
-  );
-  process.exit(1);
-}
-
 export const env = {
   port: parseInt(process.env.PORT || '4000', 10),
   nodeEnv: process.env.NODE_ENV || 'development',
-  isProd,
+  isProd: (process.env.NODE_ENV || 'development') === 'production',
   corsOrigins: (process.env.CORS_ORIGIN || '')
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean),
 
-  jwtSecret: process.env.JWT_SECRET || INSECURE_DEFAULT_JWT_SECRET,
+  jwtSecret: process.env.JWT_SECRET || 'dev-insecure-secret-change-me',
   accessTokenTtl: process.env.ACCESS_TOKEN_TTL || '7d',
   cookieSecure: bool(process.env.COOKIE_SECURE, false),
   cookieDomain: process.env.COOKIE_DOMAIN || undefined,
